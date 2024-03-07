@@ -9,5 +9,5 @@
 # brief:   This program is a vocab-trainer. It is designed and programmed to train different languages and different topic-specific vocabulary
 print("Test")
 print("Testformerging")
-
+print("Funktioniert")
 #teständerung
