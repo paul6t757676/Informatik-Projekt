@@ -14,14 +14,14 @@ print("English (1)" + "\n" + "French (2)" + "\n" + "Spanish (3)" + "\n" + "Creat
 mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '9' to get help: "))
 
 language = ["English", "French", "Spanish", "No language chosen"] 
-english = ["In the Kitchen", "Out in the nature", "Mechanical English", "Random Vocabs"]
-french = ["Dans la cuisine", "Dans la nature", "Francais mécanique", "Vocabulaire aléatoire"]
-spanish = ["En la cocina", "En la naturaleza", "Espanol mecánico", "Vocabulario aleatorio"]
+english = ["In the Kitchen (1)", "Out in the nature (2)", "Mechanical English (3)", "Random Vocabs (4)"]
+french = ["Dans la cuisine (1)", "Dans la nature (2)", "Francais mécanique (3)", "Vocabulaire aléatoire (4)"]
+spanish = ["En la cocina (1)", "En la naturaleza (2)", "Espanol mecánico (3)", "Vocabulario aleatorio (4)"]
 modetranslation = [english, french, spanish]
 
 
-menu2 = print("Language chosen: " + language[mode-1] + "\n" + "d" + "\n" + "Vocab-Package 2" \
-              + "\n" + "Vocab-Package 1" + "\n" + "Vocab-Package 1" + "\n" + "Vocab-Package 1")
+menu2 = print("Language chosen: " + language[mode-1]), print(modetranslation[mode-1])
+chosen_program = int(input("Choose one specific vocab-unit you'd like to train (1 - 4): "))
 
 if mode == 1:
     print(menu2)
