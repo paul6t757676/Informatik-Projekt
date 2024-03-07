@@ -15,8 +15,3 @@ print("Create your own vocab-list (4)")
 
 int(input("Select a Language or create your own vocabs to continue (1 - 4): "))
 
-print("Test")
-
-print("Testformerging")
-print("Funktioniert")
-#teständerung
