@@ -9,16 +9,18 @@
 # brief:   This program is a vocab-trainer. It is designed and programmed to train different languages and different topic-specific vocabulary
 
 print("Menu:")
-print("English (1)" + "\n" + "French (2)" + "\n" + "Spanish (3)" + "\n" + "Create your own vocab-list")
+print("English (1)" + "\n" + "French (2)" + "\n" + "Spanish (3)" + "\n" + "Create your own vocab-list (4)" + "\n" + "Help (9)")
 
-mode = int(input("Select a Language or create your own vocabs to continue (1 - 4): "))
+mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '9' to get help: "))
 
 language = ["English", "French", "Spanish", "No language chosen"] 
 english = ["In the Kitchen", "Out in the nature", "Mechanical English", "Random Vocabs"]
 french = ["Dans la cuisine", "Dans la nature", "Francais mécanique", "Vocabulaire aléatoire"]
 spanish = ["En la cocina", "En la naturaleza", "Espanol mecánico", "Vocabulario aleatorio"]
+modetranslation = [english, french, spanish]
 
-menu2 = print("Language chosen: " , language[mode-1] + "\n" + "Vocab-Package 1 ()" + "\n" + "Vocab-Package 2" \
+
+menu2 = print("Language chosen: " + language[mode-1] + "\n" + "d" + "\n" + "Vocab-Package 2" \
               + "\n" + "Vocab-Package 1" + "\n" + "Vocab-Package 1" + "\n" + "Vocab-Package 1")
 
 if mode == 1:
