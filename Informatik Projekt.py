@@ -11,7 +11,7 @@
 print("Menu:")
 print("English (1)" + "\n" + "French (2)" + "\n" + "Spanish (3)" + "\n" + "Create your own vocab-list (4)" + "\n" + "Help (5)")
 
-mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '9' to get help: "))
+mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '5' to get help: "))
 help = print("Help needed? This program is a vocabulary-trainer....(hier mehr Hilfe-Text noch einfügen ;)")
 
 
@@ -22,24 +22,22 @@ spanish = ["Kitchen: En la cocina (1)", "Nature: En la naturaleza (2)", "Enginee
 modetranslation = [english, french, spanish]
 
 
-menu2 = print("Language chosen: " + language[mode-1]), print(modetranslation[mode-1])
+menu2 = print("Language chosen: " , language[mode-1]), print(modetranslation[mode-1])
 chosen_program = int(input("Choose one specific vocab-unit you'd like to train (1 - 4): "))
-if mode == 5:
+
+if mode == 1:
+    print(menu2)
+    chosen_program
+elif mode == 2:
+    print(menu2)
+    chosen_program
+elif mode == 3:
+    print(menu2)
+    chosen_program
+elif mode == 4:
+    print(menu2)
+    chosen_program
+elif mode == 5:
     help
 else:
-    if mode == 1:
-        print(menu2)
-        chosen_program
-    elif mode == 2:
-        print(menu2)
-        chosen_program
-    elif mode == 3:
-        print(menu2)
-        chosen_program
-    elif mode == 4:
-        print(menu2)
-        chosen_program
-    elif mode == 5:
-        help
-    elif mode > 5:
-        print("Sorry, this programm currently has only 4 modes available!")
+    print("Sorry, this programm currently has only 4 modes available!")
