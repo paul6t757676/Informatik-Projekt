@@ -58,11 +58,25 @@ def vocabset_menu(mode):
 
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create():
-    own_list = []
+    term = []
+    definition = []
     x = 0
     while x == 0:
-        newword = input()
-
+        newword = input("Fachbegriff: ")        # New technical term is asked
+        term.append(newword)                    # New technical term is saved in  list
+        newdef = input("Definition: ")          # New definition is asked
+        definition.append(newdef)               # New definition is saved in list
+        x = continuing_create()
+        
+### continuing create: Checks if another Vocab shall be added or the mode shall be closed ###
+def continuing_create():
+    continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N): ")
+    if continuing == "Y":
+        return 0
+    elif continuing == "N":
+        return 1
+    else:
+        return continuing_create()
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
