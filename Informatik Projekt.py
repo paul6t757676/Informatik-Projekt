@@ -11,12 +11,23 @@
 # selection-menu: Hier erfolgt die Auswahl der Sprache
 def selection_menu():
     print("Menu:")
-    print("(1) English" + "\n" + "(2) French" + "\n" + "(3) Spanish" + "\n" + "(4) Create your own vocab-list" + "\n" + "(5) Help")
+    print("(1) English" + "\n" + "(2) French" + "\n" + "(3) Spanish" + "\n" + "(4) Create your own vocab-list" + "\n" + "(5) Help")                         #print options
 
-    mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '5' to get help: "))
-    help = print("Help needed? This program is a vocabulary-trainer....(hier mehr Hilfe-Text noch einfügen ;)")
+    mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '5' to get help: "))                                           #select chosen option
+    help = "Help needed? This program is a vocabulary-trainer....(hier mehr Hilfe-Text noch einfügen ;)"
+    if mode == 5:
+        print(help)
+        selection_menu()
+    elif mode<4:
+        vocabset_menu()
+    elif mode == 4:
+        vocabset_create()
+    else:
+        print("Please choose another option!")
+        selection_menu()
 
-
+# vocabset_menu: 
+def vocabset_menu():
     language = ["English", "French", "Spanish", "No language chosen", help] 
     english = ["Kitchen: In the Kitchen (1)", "Nature: Out in the nature (2)", "Engineering: Mechanical English (3)", "Random: Random Vocabs (4)"]
     french = ["Kitchen: Dans la cuisine (1)", "Nature: Dans la nature (2)", "Engineering: Francais mécanique (3)", "Random: Vocabulaire aléatoire (4)"]
@@ -44,6 +55,9 @@ def selection_menu():
     else:
         print("Sorry, this programm currently has only 4 modes available!")
 
+
+# vocabset_create:
+def vocabset_create():
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()

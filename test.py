@@ -1,8 +1,6 @@
-#test 1
-#hallo
-# 1 a
-#.
-#neu
-#neu2
-#neu3
-print("Test")
+feld = [1, 2]
+x = 0
+while x<5:
+    feld.append(x)
+    x += 1
+print(feld)
