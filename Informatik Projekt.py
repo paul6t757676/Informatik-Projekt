@@ -60,7 +60,7 @@ def vocabset_menu(mode):
 
 ### vocab-set storage: All the vocab sets are stored here ###
 def vocabset_storage():
-    küche = []
+    kueche = []
 
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create():
