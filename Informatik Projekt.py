@@ -14,7 +14,9 @@ def selection_menu():
     print("(1) English" + "\n" + "(2) French" + "\n" + "(3) Spanish" + "\n" + "(4) Create your own vocab-list" + "\n" + "(5) Help")                         #print options
 
     mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '5' to get help: "))                                           #select chosen option
-    help = "Help needed? This program is a vocabulary-trainer....(hier mehr Hilfe-Text noch einfügen ;)"
+    help = "Help needed? This program is a vocabulary-trainer. It can support you improving your language skills by asking you for the correct\
+            translation of different vocabs. There are different languages and modes you can select. You can either improve your english, spanish,\
+            or your french skills, or as an extra option you can create your own vocab list, which will be used for your vocab training. )"
     if mode == 5:
         print(help)
         selection_menu()
