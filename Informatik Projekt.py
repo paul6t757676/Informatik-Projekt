@@ -90,8 +90,10 @@ def vocabset_storage(language, set):
     naturaleza = ["árbol", "prado", "flor", "parque", "pájaro", "pozo", "estanque", "ardilla", "erizo",\
                   "hongo", "arcoíris", "nube", "nieve", "lluvia", "tiempo"]
 
-    engineering = []
-    mecanique = []
+    engineering = ["angle", "short circuit", "axis", "calibration", "conductivity", "counterweight", "inductance",\
+                   "density", "equation", "friction", "earthing", "measure", "resistor", "voltage", "capicity"]
+    mecanique = ["angle", "court-circuit", "axe", "étalonnage", "conductibilité", "contrepoids", "inductance",\
+                 "densité", "équation", "frottement", "mise à la terre", "mesurer", "résistance", "tension", "capacité"]
     mecanico = []
 
 ### vocabset_create: an own vocab list can be created here ###
