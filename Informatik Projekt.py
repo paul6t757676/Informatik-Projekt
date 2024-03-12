@@ -80,7 +80,8 @@ def vocabset_storage(language, set):
                "fork", "plate", "dishwasher", "sink", "spatula", "spices"]
     cuisine = ["four", "poêle", "réfrigérateur", "casserole", "grille-pain", "couteau", "poêle", "verre",\
                "cuillère", "fourchette", "assiette", "lave-vaisselle", "évier", "poêle à frire", "épices"]
-    cocina = []
+    cocina = ["horno", "cocina", "refrigerador", "cazuela", "tostadora", "cuchillo", "sartén", "vidrio",\
+              "cuchara", "tenedor", "plato", "lavavajillas", "fregadero", "especia"]
 
     nature_en = []
     nature_fr = []
