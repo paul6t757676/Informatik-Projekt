@@ -48,13 +48,13 @@ def vocabset_menu(mode):
         chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): "))
         try:
             if mode == 1:
-                print(menu2)
+                print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
                 chosen_program
             elif mode == 2:
-                print(menu2)
+                print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
                 chosen_program
             elif mode == 3:
-                print(menu2)
+                print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
                 chosen_program
             elif mode == 4:
                 print(menu2)
@@ -67,6 +67,27 @@ def vocabset_menu(mode):
             print("Invalid input! Please choose a correct Number for the Programm\n")
             
 
+### vocab-set storage: All the vocab sets are stored here ###
+def vocabset_storage(language, set):
+    kueche = ["Ofen", "Herd", "Kühlschrank", "Topf", "Toaster", "Messer", "Pfanne", "Kaffemschine",\
+              "Löffel", "Gabel", "Teller", "Spülmschine", "Spüle", "Pfannenwender", "Gewürze"]
+    natur = ["Baum", "Wiese", "Blume", "Park", "Vogel", "Brunnen", "Teich", "Eichhörnchen",\
+             "Igel", "Pilz", "Regenbogen", "Wolken", "Schnee", "Regen", "Wetter"]
+    mechanisch = ["Winkel", "Kurzschluss", "Achse", "Eichung", "Leitfähigkeit", "Gegengewicht", "Induktivität",\
+                  "Dichte", "Gleichung", "Reibung", "Erdung", "messen", "Widerstand", "Spannung", "Kapazität"]
+
+    kitchen = []
+    cuisine = []
+    cocina = []
+
+    nature_en = []
+    nature_fr = []
+    naturaleza = []
+
+    engineering = []
+    mecanique = []
+    mecanico = []
+
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create():
     term = []
@@ -77,7 +98,8 @@ def vocabset_create():
         term.append(newword)                    # New technical term is saved in  list
         newdef = input("Definition: ")          # New definition is asked
         definition.append(newdef)               # New definition is saved in list
-        x = continuing_create()
+        x = print(continuing_create())
+    query(term, definition)
         
 ### continuing create: Checks if another Vocab shall be added or the mode shall be closed ###
 def continuing_create():
@@ -88,6 +110,12 @@ def continuing_create():
         return 1
     else:
         return continuing_create()
+
+
+### query:  ###
+def query(term, definition):
+    print(term)
+    print(definition)
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
