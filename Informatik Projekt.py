@@ -69,15 +69,17 @@ def vocabset_menu(mode):
 
 ### vocab-set storage: All the vocab sets are stored here ###
 def vocabset_storage(language, set):
-    kueche = ["Ofen", "Herd", "Kühlschrank", "Topf", "Toaster", "Messer", "Pfanne", "Kaffemschine",\
-              "Löffel", "Gabel", "Teller", "Spülmschine", "Spüle", "Pfannenwender", "Gewürze"]
+    kueche = ["Ofen", "Herd", "Kühlschrank", "Kochtopf", "Toaster", "Messer", "Pfanne", "Glas",\
+              "Löffel", "Gabel", "Teller", "Spülmaschine", "Spüle", "Pfannenwender", "Gewürze"]
     natur = ["Baum", "Wiese", "Blume", "Park", "Vogel", "Brunnen", "Teich", "Eichhörnchen",\
              "Igel", "Pilz", "Regenbogen", "Wolken", "Schnee", "Regen", "Wetter"]
     mechanisch = ["Winkel", "Kurzschluss", "Achse", "Eichung", "Leitfähigkeit", "Gegengewicht", "Induktivität",\
                   "Dichte", "Gleichung", "Reibung", "Erdung", "messen", "Widerstand", "Spannung", "Kapazität"]
 
-    kitchen = []
-    cuisine = []
+    kitchen = ["oven", "stove", "refrigerator", "pot", "toaster", "knife", "pan", "glass", "spoon",\
+               "fork", "plate", "dishwasher", "sink", "spatula", "spices"]
+    cuisine = ["four", "poêle", "réfrigérateur", "casserole", "grille-pain", "couteau", "poêle", "verre",\
+               "cuillère", "fourchette", "assiette", "lave-vaisselle", "évier", "poêle à frire", "épices"]
     cocina = []
 
     nature_en = []
