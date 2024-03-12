@@ -66,7 +66,8 @@ def vocabset_storage(language, set):
               "Löffel", "Gabel", "Teller", "Spülmschine", "Spüle", "Pfannenwender", "Gewürze"]
     natur = ["Baum", "Wiese", "Blume", "Park", "Vogel", "Brunnen", "Teich", "Eichhörnchen",\
              "Igel", "Pilz", "Regenbogen", "Wolken", "Schnee", "Regen", "Wetter"]
-    mechanisch = []
+    mechanisch = ["Winkel", "Kurzschluss", "Achse", "Eichung", "Leitfähigkeit", "Gegengewicht", "Induktivität",\
+                  "Dichte", "Gleichung", "Reibung", "Erdung", "messen", "Widerstand", "Spannung", "Kapazität"]
 
     kitchen = []
     cuisine = []
