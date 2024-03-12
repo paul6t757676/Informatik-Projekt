@@ -7,7 +7,7 @@
 # authors: Paula Stegmayer, Finn Wohnig, Paul Schabram
 # date:  07.03.2024
 # brief:   This program is a vocab-trainer. It is designed and programmed to train different languages and different topic-specific vocabulary
-#testtesttest123
+
 ### selection-menu: The preferred language, creating an own vocab list or a help function can be chosen here ###
 def selection_menu():
     print("Menu:")
@@ -59,8 +59,22 @@ def vocabset_menu(mode):
 
 
 ### vocab-set storage: All the vocab sets are stored here ###
-def vocabset_storage():
+def vocabset_storage(language, set):
     kueche = []
+    natur = []
+    mechanisch = []
+
+    kitchen = []
+    cuisine = []
+    cocina = []
+
+    nature_en = []
+    nature_fr = []
+    naturaleza = []
+
+    engineering = []
+    mecanique = []
+    mecanico = []
 
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create():
