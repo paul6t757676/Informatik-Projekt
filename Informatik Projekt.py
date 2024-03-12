@@ -7,7 +7,7 @@
 # authors: Paula Stegmayer, Finn Wohnig, Paul Schabram
 # date:  07.03.2024
 # brief:   This program is a vocab-trainer. It is designed and programmed to train different languages and different topic-specific vocabulary
-#testtesttest
+#testtesttest123
 ### selection-menu: The preferred language, creating an own vocab list or a help function can be chosen here ###
 def selection_menu():
     print("Menu:")
