@@ -72,7 +72,7 @@ def vocabset_storage(language, set):
     kueche = ["Ofen", "Herd", "Kühlschrank", "Kochtopf", "Toaster", "Messer", "Pfanne", "Glas",\
               "Löffel", "Gabel", "Teller", "Spülmaschine", "Spüle", "Pfannenwender", "Gewürze"]
     natur = ["Baum", "Wiese", "Blume", "Park", "Vogel", "Brunnen", "Teich", "Eichhörnchen",\
-             "Igel", "Pilz", "Regenbogen", "Wolken", "Schnee", "Regen", "Wetter"]
+             "Igel", "Pilz", "Regenbogen", "Wolke", "Schnee", "Regen", "Wetter"]
     mechanisch = ["Winkel", "Kurzschluss", "Achse", "Eichung", "Leitfähigkeit", "Gegengewicht", "Induktivität",\
                   "Dichte", "Gleichung", "Reibung", "Erdung", "messen", "Widerstand", "Spannung", "Kapazität"]
 
@@ -83,9 +83,12 @@ def vocabset_storage(language, set):
     cocina = ["horno", "cocina", "refrigerador", "cazuela", "tostadora", "cuchillo", "sartén", "vidrio",\
               "cuchara", "tenedor", "plato", "lavavajillas", "fregadero", "especia"]
 
-    nature_en = []
-    nature_fr = []
-    naturaleza = []
+    nature_en = ["tree", "meadow", "flower", "park", "bird", "well", "pond", "squirrel", "hedgehog",\
+                 "mushroom", "rainbow", "cloud", "snow", "rain", "weather"]
+    nature_fr = ["arbre", "prairie", "fleur", "parc", "oiseau", "puits", "étang", "écureuil", "hérisson",\
+                 "champignon", "arc en ciel", "nuage", "neige", "pluie", "temps"]
+    naturaleza = ["árbol", "prado", "flor", "parque", "pájaro", "pozo", "estanque", "ardilla", "erizo",\
+                  "hongo", "arcoíris", "nube", "nieve", "lluvia", "tiempo"]
 
     engineering = []
     mecanique = []
