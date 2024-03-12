@@ -63,6 +63,25 @@ def vocabset_menu(mode):
             print("Invalid input! Please choose a correct Number for the Programm\n")
             
 
+### vocab-set storage: All the vocab sets are stored here ###
+def vocabset_storage(language, set):
+    kueche = ["Ofen", "Herd", "Kühlschrank", "Topf", "Toaster", "Messer", "Pfanne", "Kaffemschine",\
+              "Löffel", "Gabel", "Teller", "Spülmschine", "Spüle", "Pfannenwender", "Gewürze"]
+    natur = []
+    mechanisch = []
+
+    kitchen = []
+    cuisine = []
+    cocina = []
+
+    nature_en = []
+    nature_fr = []
+    naturaleza = []
+
+    engineering = []
+    mecanique = []
+    mecanico = []
+
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create():
     term = []
