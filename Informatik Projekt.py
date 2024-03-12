@@ -34,29 +34,26 @@ def selection_menu():
 ### vocabset_menu: one of the available vocab lists can be chosen ###
 def vocabset_menu(mode):
     language = ["English", "French", "Spanish", "No language chosen", help] 
-    english = ["Kitchen: In the Kitchen (1)", "Nature: Out in the nature (2)", "Engineering: Mechanical English (3)", "Random: Random Vocabs (4)"]
-    french = ["Kitchen: Dans la cuisine (1)", "Nature: Dans la nature (2)", "Engineering: Francais mécanique (3)", "Random: Vocabulaire aléatoire (4)"]
-    spanish = ["Kitchen: En la cocina (1)", "Nature: En la naturaleza (2)", "Engineering: Espanol mecánico (3)", "Random: Vocabulario aleatorio (4)"]
+    english = ["Kitchen: In the Kitchen (1)", "Nature: Out in the nature (2)", "Engineering: Mechanical English (3)"]
+    french = ["Kitchen: Dans la cuisine (1)", "Nature: Dans la nature (2)", "Engineering: Francais mécanique (3)"]
+    spanish = ["Kitchen: En la cocina (1)", "Nature: En la naturaleza (2)", "Engineering: Espanol mecánico (3)"]
     modetranslation = [english, french, spanish]
 
     while True:
-        menu2 = print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
+        #menu2 = print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
         chosen_program = int(input("Choose one specific vocab-unit you'd like to train (1 - 4): "))
         try:
             if mode == 1:
-                print(menu2)
+                print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
                 chosen_program
             elif mode == 2:
-                print(menu2)
+                print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
                 chosen_program
             elif mode == 3:
-                print(menu2)
+                print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
                 chosen_program
-            elif mode == 4:
-                print(menu2)
-                chosen_program
-            elif mode == 5:
-                help
+            #elif mode == 5:
+            #    help
             else:
                 print("Sorry, this programm currently has only 4 modes available!")
         except:
@@ -92,7 +89,8 @@ def vocabset_create():
         term.append(newword)                    # New technical term is saved in  list
         newdef = input("Definition: ")          # New definition is asked
         definition.append(newdef)               # New definition is saved in list
-        x = continuing_create()
+        x = print(continuing_create())
+    query(term, definition)
         
 ### continuing create: Checks if another Vocab shall be added or the mode shall be closed ###
 def continuing_create():
@@ -103,6 +101,12 @@ def continuing_create():
         return 1
     else:
         return continuing_create()
+
+
+### query:  ###
+def query(term, definition):
+    print(term)
+    print(definition)
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
