@@ -67,7 +67,8 @@ def vocabset_menu(mode):
 def vocabset_storage(language, set):
     kueche = ["Ofen", "Herd", "Kühlschrank", "Topf", "Toaster", "Messer", "Pfanne", "Kaffemschine",\
               "Löffel", "Gabel", "Teller", "Spülmschine", "Spüle", "Pfannenwender", "Gewürze"]
-    natur = []
+    natur = ["Baum", "Wiese", "Blume", "Park", "Vogel", "Brunnen", "Teich", "Eichhörnchen",\
+             "Igel", "Pilz", "Regenbogen", "Wolken", "Schnee", "Regen", "Wetter"]
     mechanisch = []
 
     kitchen = []
