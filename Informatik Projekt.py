@@ -9,6 +9,7 @@
 # brief:   This program is a vocab-trainer. It is designed and programmed to train different languages and different topic-specific vocabulary
 
 ### selection-menu: The preferred language, creating an own vocab list or a help function can be chosen here ###
+### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
 import os
 def selection_menu():
     while True:
@@ -77,25 +78,25 @@ def vocabset_storage(language, set):
                   "Dichte", "Gleichung", "Reibung", "Erdung", "messen", "Widerstand", "Spannung", "Kapazität"]
 ###translations for german category "kueche"
     kitchen = ["oven", "stove", "refrigerator", "pot", "toaster", "knife", "pan", "glass", "spoon",\
-               "fork", "plate", "dishwasher", "sink", "spatula", "spices"]
+               "fork", "plate", "dishwasher", "sink", "spatula", "spices"]                                                  # (List) english translation for "kueche"
     cuisine = ["four", "poêle", "réfrigérateur", "casserole", "grille-pain", "couteau", "poêle", "verre",\
-               "cuillère", "fourchette", "assiette", "lave-vaisselle", "évier", "poêle à frire", "épices"]
+               "cuillère", "fourchette", "assiette", "lave-vaisselle", "évier", "poêle à frire", "épices"]                  # (List) french translation for "kueche"
     cocina = ["horno", "cocina", "refrigerador", "cazuela", "tostadora", "cuchillo", "sartén", "vidrio",\
-              "cuchara", "tenedor", "plato", "lavavajillas", "fregadero", "especia"]
+              "cuchara", "tenedor", "plato", "lavavajillas", "fregadero", "especia"]                                        # (List) spanish translation for "kueche"
 ### translations for german category "natur"
     nature_en = ["tree", "meadow", "flower", "park", "bird", "well", "pond", "squirrel", "hedgehog",\
-                 "mushroom", "rainbow", "cloud", "snow", "rain", "weather"]                                                 # List english translation for "natur"
+                 "mushroom", "rainbow", "cloud", "snow", "rain", "weather"]                                                 # (List) english translation for "natur"
     nature_fr = ["arbre", "prairie", "fleur", "parc", "oiseau", "puits", "étang", "écureuil", "hérisson",\
-                 "champignon", "arc en ciel", "nuage", "neige", "pluie", "temps"]                                           # List french translation for "natur"
+                 "champignon", "arc en ciel", "nuage", "neige", "pluie", "temps"]                                           # (List) french translation for "natur"
     naturaleza = ["árbol", "prado", "flor", "parque", "pájaro", "pozo", "estanque", "ardilla", "erizo",\
-                  "hongo", "arcoíris", "nube", "nieve", "lluvia", "tiempo"]                                                 # List spanish translation for "natur"
+                  "hongo", "arcoíris", "nube", "nieve", "lluvia", "tiempo"]                                                 # (List) spanish translation for "natur"
 ### translations for german category "mechanisch"
     engineering = ["angle", "short circuit", "axis", "calibration", "conductivity", "counterweight", "inductance",\
-                   "density", "equation", "friction", "earthing", "measure", "resistor", "voltage", "capicity"]             # List english translation for "mechanisch"
+                   "density", "equation", "friction", "earthing", "measure", "resistor", "voltage", "capicity"]             # (List) english translation for "mechanisch"
     mecanique = ["angle", "court-circuit", "axe", "étalonnage", "conductibilité", "contrepoids", "inductance",\
-                 "densité", "équation", "frottement", "mise à la terre", "mesurer", "résistance", "tension", "capacité"]    # List french translation for "mechanisch"
+                 "densité", "équation", "frottement", "mise à la terre", "mesurer", "résistance", "tension", "capacité"]    # (List) french translation for "mechanisch"
     mecanico = ["ángulo", "cortocircuito", "eje", "contraste", "conductividad", "contrapeso", "inductividad",\
-                "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]
+                "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]    # (List) spanish translation for "mechanisch"
 
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create():
