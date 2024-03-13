@@ -94,7 +94,8 @@ def vocabset_storage(language, set):
                    "density", "equation", "friction", "earthing", "measure", "resistor", "voltage", "capicity"]             # List english translation for "mechanisch"
     mecanique = ["angle", "court-circuit", "axe", "étalonnage", "conductibilité", "contrepoids", "inductance",\
                  "densité", "équation", "frottement", "mise à la terre", "mesurer", "résistance", "tension", "capacité"]    # List french translation for "mechanisch"
-    mecanico = []
+    mecanico = ["ángulo", "cortocircuito", "eje", "contraste", "conductividad", "contrapeso", "inductividad",\
+                "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]
 
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create():
