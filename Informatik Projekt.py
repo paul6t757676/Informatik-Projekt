@@ -61,26 +61,7 @@ def vocabset_menu(mode):
             selection_menu()
         #menu2 =  (print(modetranslation[mode-1]))
         chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): " + "\n"))
-        
-        # try:
-        #     if mode == 1:
-        #         print("Kitchen: In the Kitchen (1)" + "\n" + "Nature: Out in the nature (2)" + "\n" + "Engineering: Mechanical English (3)" + "\n" + "Random: Random Vocabs (4)" + "\n")
-        #         chosen_program
-        #     elif mode == 2:
-        #         print("Kitchen: Dans la cuisine (1)" + "\n" + "Nature: Dans la nature (2)" + "\n" + "Engineering: Francais mécanique (3)" + "\n" + "Random: Vocabulaire aléatoire (4)" + "\n")
-        #         chosen_program
-        #     elif mode == 3:
-        #         print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Random: Vocabulario aleatorio (4)" + "\n")
-        #         chosen_program
-        #     elif mode == 4:
-        #         print(menu2)
-        #         chosen_program
-        #     elif mode == 5:
-        #         help
-        #     else:
-        #         print("Sorry, this programm currently has only 4 modes available!")
-        # except:
-        #     print("Invalid input! Please choose a correct Number for the Programm\n")
+       
             
 #############################################################
 ### vocab-set storage: All the vocab sets are stored here ###
@@ -173,7 +154,8 @@ def vocabset_create(term, definition):
 ############################################################################
 def query(term, definition, number):
     try:
-        print("\n-----------------------\nWelchen Modus möchten Sie wählen?\nDeutsch zu Fremdsprache (1)\nFremdsprache zu Deutsch (2)Einen Zufalls-Modus(3)\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
+        print("\n-----------------------\nWelchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
+              (3) Einen Zufalls-Modus\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
         modus= input("Gebn Sie die Zahl des Modi ein, welchen sie auswählen möchten: ")
         
         if modus=="1":
