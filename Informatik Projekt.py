@@ -8,9 +8,11 @@
 # date:  07.03.2024
 # brief:   This program is a vocab-trainer. It is designed and programmed to train different languages and different topic-specific vocabulary
 
+################################################################################################################
 ### selection-menu: The preferred language, creating an own vocab list or a help function can be chosen here ###
-### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
-import os
+################################################################################################################
+
+import os           ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
 def selection_menu():
     while True:
         print("\nMenu:")
@@ -35,7 +37,9 @@ def selection_menu():
         except:
                 print("Invalid input! Please choose a correct Number for the Programm\n")
 
+#####################################################################
 ### vocabset_menu: one of the available vocab lists can be chosen ###
+#####################################################################
 def vocabset_menu(mode):
     language = ["English", "French", "Spanish", "No language chosen", help] 
     menu2 = print("Language chosen: " , (language[mode-1]),"\n-----------------------\nPossible Topics:\n")
@@ -76,8 +80,9 @@ def vocabset_menu(mode):
         # except:
         #     print("Invalid input! Please choose a correct Number for the Programm\n")
             
-
+#############################################################
 ### vocab-set storage: All the vocab sets are stored here ###
+#############################################################
 def vocabset_storage(language, set):
     kueche = ["Ofen", "Herd", "Kühlschrank", "Kochtopf", "Toaster", "Messer", "Pfanne", "Glas",\
               "Löffel", "Gabel", "Teller", "Spülmaschine", "Spüle", "Pfannenwender", "Gewürze"]
@@ -111,25 +116,35 @@ def vocabset_storage(language, set):
         if language == 1:
             query(kitchen, kueche, 14)
         elif language == 2:
-            query(cuisine, kueche, 15)
+            query(cuisine, kueche, 14)
         else:
-            query(cocina, kueche, 15)
+            query(cocina, kueche, 14)
     elif set == 2: 
         if language == 1:
-            query(kitchen, natur, 15)
+            query(kitchen, natur, 14)
         elif language == 2:
-            query(cuisine, natur, 15)
+            query(cuisine, natur, 14)
         else:
-            query(cocina, natur, 15)
+            query(cocina, natur, 14)
+    elif set == 3: 
+        if language == 1:
+            query(engineering, mechanisch, 14)
+        elif language == 2:
+            query(mecanique, mechanisch, 14)
+        else:
+            query(mecanico, mechanisch, 14)
 
+#######################################################################################
 ### empty_lists: initializes two empty lists to save the own vocab list of the user ###
+#######################################################################################
 def empty_lists():
     term = []
     definition = []
     vocabset_create(term, definition)
 
-
+##############################################################
 ### vocabset_create: an own vocab list can be created here ###
+##############################################################
 def vocabset_create(term, definition):
     x = 0
     number = 0
@@ -151,8 +166,9 @@ def vocabset_create(term, definition):
     
 
     
-
-### query:  ###
+############################################################################
+### query: interrogates the chosen vocabs with different modes available ###
+############################################################################
 def query(term, definition, language, mode, number):
     try:
         print("Which modus would you like to have?\nGerman to ", language[mode-1], "(1)\n or ", language[mode-1], "to german(2) or a mixed modus (3)?\n-----------------------\nPress (4) to get back to possible programms " )
