@@ -13,6 +13,7 @@
 import os
 def selection_menu():
     while True:
+        print("Welcome to our vocab-trainer. Below you find a list of different languages and other options to select. Just enter the number of the mode you'd like to train and follow the instructions.")
         print("\nMenu:")
         print("(1) English" + "\n" + "(2) French" + "\n" + "(3) Spanish" + "\n" + "(4) Create your own vocab-list" + "\n" + "(5) Help" + "\n")    
                            #print options
