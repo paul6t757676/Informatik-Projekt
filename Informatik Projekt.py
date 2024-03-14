@@ -152,7 +152,7 @@ def vocabset_create(term, definition):
 ############################################################################
 ### query: interrogates the chosen vocabs with different modes available ###
 ############################################################################
-def query(term, definition, number, program_chosen):
+def query(term, definition, number):
     try:
         print("\n-----------------------\nWelchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
               (3) Einen Zufalls-Modus\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
