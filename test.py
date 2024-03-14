@@ -1,6 +1,4 @@
-feld = [1, 2]
-x = 0
-while x<5:
-    feld.append(x)
-    x += 1
-print(feld)
+def return_3():
+    return 3
+
+print(return_3())

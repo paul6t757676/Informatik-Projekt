@@ -112,12 +112,12 @@ def vocabset_create():
     term = []
     definition = []
     x = 0
-    while x == 0:
-        newword = input("Fachbegriff: ")        # New technical term is asked
-        term.append(newword)                    # New technical term is saved in  list
-        newdef = input("Definition: ")          # New definition is asked
-        definition.append(newdef)               # New definition is saved in list
-        x = continuing_create()
+    #while x == 0:
+    newword = input("Fachbegriff: ")        # New technical term is asked
+    term.append(newword)                    # New technical term is saved in  list
+    newdef = input("Definition: ")          # New definition is asked
+    definition.append(newdef)               # New definition is saved in list
+    x = continuing_create()
     query(term, definition)
         
 ### continuing create: Checks if another Vocab shall be added or the mode shall be closed ###
