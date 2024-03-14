@@ -116,35 +116,29 @@ def empty_lists():
 
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create(term, definition):
-    #x = 0
-    #while x == 0:
+    x = 0
+    wordcount = 0
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
     newdef = input("Definition: ")          # New definition is asked
     definition.append(newdef)               # New definition is saved in list
+    while x == 0:
+        continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
+        if continuing == "Y":
+            x = 1
+            wordcount = wordcount + 1
+            vocabset_create(term, definition)
+        elif continuing == "N":
+            x = 1
+            query(term, definition, wordcount)
+        else:
+            print("Diese Eingabe kann leider nicht verarbeitet werden.")
     
-    #x = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
-    #if x == "Y":
-    #    vocabset_create(term, definition)
-    #elif x == "N":
 
-    
-        
-### continuing create: Checks if another Vocab shall be added or the mode shall be closed ###
-def continuing_create(term, definition):
-    continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N): ")
-
-    if continuing == "Y":
-        vocabset_create(term, definition)                                       # if "Yes" was chosen, vocabset_create is called to add another vocab
-    elif continuing == "N":
-        query(term, definition)                                                 # if "No" was chosen, the query-funktion is called to start the query
-    else:
-        print("Diese Eingabe kann leider nicht verarbeitet werden.")
-        continuing_create(term, definition)
     
 
 ### query:  ###
-def query(term, definition):
+def query(term, definition, number):
     print(term)
     print(definition)
 
