@@ -153,9 +153,23 @@ def vocabset_create(term, definition):
     
 
 ### query:  ###
-def query(term, definition, number):
-    print(term)
-    print(definition)
+def query(term, definition, language, mode, number):
+    try:
+        print("Which modus would you like to have?\nGerman to ", language[mode-1], "(1)\n or ", language[mode-1], "to german(2) or a mixed modus (3)?\n-----------------------\nPress (4) to get back to possible programms " )
+        modus= input("Press the number of the option you like to have: ")
+        
+        if modus=="1":
+            print("Please translate this word to ", language[modus-1])
+
+        elif modus=="2":
+            print("Please translate this word to German:")
+
+        elif modus=="3":
+            print("Please translate this word to German or to ", language[modus-1])
+        elif modus=="4":
+            vocabset_menu(mode)      
+    except:
+        print("Wrong input, please try again")
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
