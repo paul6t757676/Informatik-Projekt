@@ -43,7 +43,7 @@ def selection_menu():
 ### vocabset_menu: one of the available vocab lists can be chosen ###
 #####################################################################
 def vocabset_menu(mode):
-    language = ["English", "French", "Spanish", "No language chosen", help] 
+    language = ["English", "French", "Spanish", "Create your own list:", help] 
     menu2 = print("Language chosen: " , (language[mode-1]),"\n-----------------------\nPossible Topics:\n")
     english = ["Kitchen: In the Kitchen (1)", "Nature: Out in the nature (2)", "Engineering: Mechanical English (3)", "Random: Random Vocabs (4)"]
     french = ["Kitchen: Dans la cuisine (1)", "Nature: Dans la nature (2)", "Engineering: Francais mécanique (3)", "Random: Vocabulaire aléatoire (4)"]
@@ -171,10 +171,10 @@ def vocabset_create(term, definition):
 ############################################################################
 ### query: interrogates the chosen vocabs with different modes available ###
 ############################################################################
-def query(term, definition, number):
+def query(term, definition, number, program_chosen):
     try:
         print("\n-----------------------\nWelchen Modus möchten Sie wählen?\nDeutsch zu Fremdsprache (1)\nFremdsprache zu Deutsch (2)Einen Zufalls-Modus(3)\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
-        modus= input("Gebn Sie die Zahl des Modi ein, welchen sie auswählen möchten: ")
+        modus= input("Geben Sie die Zahl des Modi ein, welchen sie auswählen möchten: ")
         
         if modus=="1":
             print("Bitte Übersetzen sie folgendes Wort: ")
