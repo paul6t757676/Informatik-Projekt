@@ -15,11 +15,12 @@
 import os           ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
 def selection_menu():
     while True:
+        print("Welcome to our vocab-trainer. Below you find a list of different languages and other options to select." + "\n" + "Just enter the number of the mode you'd like to train and follow the instructions.")
         print("\nMenu:")
         print("(1) English" + "\n" + "(2) French" + "\n" + "(3) Spanish" + "\n" + "(4) Create your own vocab-list" + "\n" + "(5) Help" + "\n")    
                            #print options
         try:
-            mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '5' to get help: "))  
+            mode = int(input("To select a Language or to create your own vocab-list, enter a number(1 - 4). Enter '5' to get help: "))  
             os.system('cls' if os.name == 'nt' else 'clear')                                         #select chosen option 
             help = "\nHelp needed? This program is a vocabulary-trainer. It can support you improving your language skills by asking you for the correct\
                 translation of different vocabs. There are different languages and modes you can select. You can either improve your english, spanish,\
@@ -36,6 +37,7 @@ def selection_menu():
                 selection_menu()
         except:
                 print("Invalid input! Please choose a correct Number for the Programm\n")
+                selection_menu()
 
 #####################################################################
 ### vocabset_menu: one of the available vocab lists can be chosen ###
@@ -150,15 +152,15 @@ def vocabset_create(term, definition):
     number = 0
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
-    newdef = input("Definition: ")          # New definition is asked
-    definition.append(newdef)               # New definition is saved in list
+    newdef = input("Übersetzung: ")         # New translation is asked
+    definition.append(newdef)               # New translation is saved in list
     while x == 0:
         continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
-        if continuing == "Y":
+        if continuing == "Y" or "y":
             x = 1
             number = number + 1
             vocabset_create(term, definition)
-        elif continuing == "N":
+        elif continuing == "N" or "n":
             x = 1
             query(term, definition, number)
         else:
@@ -171,21 +173,21 @@ def vocabset_create(term, definition):
 ############################################################################
 def query(term, definition, language, mode, number):
     try:
-        print("Which modus would you like to have?\nGerman to ", language[mode-1], "(1)\n or ", language[mode-1], "to german(2) or a mixed modus (3)?\n-----------------------\nPress (4) to get back to possible programms " )
-        modus= input("Press the number of the option you like to have: ")
+        print("\n-----------------------\nWelchen Modus möchten Sie wählen?\nDeutsch zu Fremdsprache (1)\nFremdsprache zu Deutsch (2)Einen Zufalls-Modus(3)\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
+        modus= input("Gebn Sie die Zahl des Modi ein, welchen sie auswählen möchten: ")
         
         if modus=="1":
-            print("Please translate this word to ", language[modus-1])
+            print("Bitte Übersetzen sie folgendes Wort: ")
 
         elif modus=="2":
-            print("Please translate this word to German:")
+            print("Bitte Übersetzen sie folgendes Wort: ")
 
         elif modus=="3":
-            print("Please translate this word to German or to ", language[modus-1])
+            print("Bitte übersetzen Sie folgendes Wort: ")
         elif modus=="4":
-            vocabset_menu(mode)      
+            vocabset_menu()      
     except:
-        print("Wrong input, please try again")
+        print("Falsche Eingabe, bitte versuchen Sie es erneut")
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
