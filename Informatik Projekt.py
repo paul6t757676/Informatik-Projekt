@@ -13,6 +13,7 @@
 ################################################################################################################
 
 import os           ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
+import vocablibrary
 def selection_menu():
     while True:
         print("Welcome to our vocab-trainer. Below you find a list of different languages and other options to select." + "\n" + "Just enter the number of the mode you'd like to train and follow the instructions.")
