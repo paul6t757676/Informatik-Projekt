@@ -12,7 +12,7 @@
 ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
 import os
 def selection_menu():
-    while True:
+    
         print("\nMenu:")
         print("(1) English" + "\n" + "(2) French" + "\n" + "(3) Spanish" + "\n" + "(4) Create your own vocab-list" + "\n" + "(5) Help" + "\n")    
                            #print options
@@ -34,6 +34,7 @@ def selection_menu():
                 selection_menu()
         except:
                 print("Invalid input! Please choose a correct Number for the Programm\n")
+                selection_menu()
 
 ### vocabset_menu: one of the available vocab lists can be chosen ###
 def vocabset_menu(mode):
@@ -153,23 +154,23 @@ def vocabset_create(term, definition):
     
 
 ### query:  ###
-def query(term, definition, language, mode, number):
+def query(term, definition,  number):
     try:
-        print("Which modus would you like to have?\nGerman to ", language[mode-1], "(1)\n or ", language[mode-1], "to german(2) or a mixed modus (3)?\n-----------------------\nPress (4) to get back to possible programms " )
-        modus= input("Press the number of the option you like to have: ")
+        print("\n-----------------------\nWelchen Modus möchten Sie wählen?\nDeutsch zu Fremdsprache (1)\nFremdsprache zu Deutsch (2)Einen Zufalls-Modus(3)\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
+        modus= input("Gebn Sie die Zahl des Modi ein, welchen sie auswählen möchten: ")
         
         if modus=="1":
-            print("Please translate this word to ", language[modus-1])
+            print("Bitte Übersetzen sie folgendes Wort: ")
 
         elif modus=="2":
-            print("Please translate this word to German:")
+            print("Bitte Übersetzen sie folgendes Wort: ")
 
         elif modus=="3":
-            print("Please translate this word to German or to ", language[modus-1])
+            print("Bitte übersetzen Sie folgendes Wort: ")
         elif modus=="4":
-            vocabset_menu(mode)      
+            vocabset_menu()      
     except:
-        print("Wrong input, please try again")
+        print("Falsche Eingabe, bitte versuchen Sie es erneut")
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
