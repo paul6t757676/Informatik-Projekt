@@ -28,7 +28,7 @@ def selection_menu():
             elif mode<4:
                 vocabset_menu(mode)
             elif mode == 4:
-                vocabset_create()
+                empty_lists()
             else:
                 print("Please choose another option!")
                 selection_menu()
@@ -105,29 +105,41 @@ def vocabset_storage(language, set):
     mecanico = ["ángulo", "cortocircuito", "eje", "contraste", "conductividad", "contrapeso", "inductividad",\
                 "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]    # (List) spanish translation for "mechanisch"
 
-### vocabset_create: an own vocab list can be created here ###
-def vocabset_create():
+### empty_lists: initializes two empty lists to save the own vocab list of the user ###
+def empty_lists():
     term = []
     definition = []
-    x = 0
+    vocabset_create(term, definition)
+
+
+### vocabset_create: an own vocab list can be created here ###
+def vocabset_create(term, definition):
+    #x = 0
     #while x == 0:
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
     newdef = input("Definition: ")          # New definition is asked
     definition.append(newdef)               # New definition is saved in list
-    x = continuing_create()
-    query(term, definition)
+    
+    #x = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
+    #if x == "Y":
+    #    vocabset_create(term, definition)
+    #elif x == "N":
+
+    
         
 ### continuing create: Checks if another Vocab shall be added or the mode shall be closed ###
-def continuing_create():
+def continuing_create(term, definition):
     continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N): ")
-    if continuing == "Y":
-        return int(0)
-    elif continuing == "N":
-        return int(1)
-    else:
-        continuing_create()
 
+    if continuing == "Y":
+        vocabset_create(term, definition)                                       # if "Yes" was chosen, vocabset_create is called to add another vocab
+    elif continuing == "N":
+        query(term, definition)                                                 # if "No" was chosen, the query-funktion is called to start the query
+    else:
+        print("Diese Eingabe kann leider nicht verarbeitet werden.")
+        continuing_create(term, definition)
+    
 
 ### query:  ###
 def query(term, definition):
