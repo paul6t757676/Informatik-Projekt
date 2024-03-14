@@ -13,12 +13,12 @@
 import os
 def selection_menu():
     while True:
-        print("Welcome to our vocab-trainer. Below you find a list of different languages and other options to select. Just enter the number of the mode you'd like to train and follow the instructions.")
+        print("Welcome to our vocab-trainer. Below you find a list of different languages and other options to select." + "\n" + "Just enter the number of the mode you'd like to train and follow the instructions.")
         print("\nMenu:")
         print("(1) English" + "\n" + "(2) French" + "\n" + "(3) Spanish" + "\n" + "(4) Create your own vocab-list" + "\n" + "(5) Help" + "\n")    
                            #print options
         try:
-            mode = int(input("Select a Language or create your own vocabs to continue (1 - 4). Enter '5' to get help: "))  
+            mode = int(input("To select a Language or to create your own vocab-list, enter a number(1 - 4). Enter '5' to get help: "))  
             os.system('cls' if os.name == 'nt' else 'clear')                                         #select chosen option 
             help = "\nHelp needed? This program is a vocabulary-trainer. It can support you improving your language skills by asking you for the correct\
                 translation of different vocabs. There are different languages and modes you can select. You can either improve your english, spanish,\
