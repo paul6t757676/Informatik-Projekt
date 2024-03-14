@@ -106,6 +106,21 @@ def vocabset_storage(language, set):
                  "densité", "équation", "frottement", "mise à la terre", "mesurer", "résistance", "tension", "capacité"]    # (List) french translation for "mechanisch"
     mecanico = ["ángulo", "cortocircuito", "eje", "contraste", "conductividad", "contrapeso", "inductividad",\
                 "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]    # (List) spanish translation for "mechanisch"
+    
+    if set == 1:
+        if language == 1:
+            query(kitchen, kueche, 14)
+        elif language == 2:
+            query(cuisine, kueche, 15)
+        else:
+            query(cocina, kueche, 15)
+    elif set == 2: 
+        if language == 1:
+            query(kitchen, natur, 15)
+        elif language == 2:
+            query(cuisine, natur, 15)
+        else:
+            query(cocina, natur, 15)
 
 ### empty_lists: initializes two empty lists to save the own vocab list of the user ###
 def empty_lists():
