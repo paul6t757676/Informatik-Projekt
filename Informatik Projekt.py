@@ -28,9 +28,9 @@ def selection_menu():
             elif mode<4:
                 vocabset_menu(mode)
             elif mode == 4:
-                vocabset_create()
+                empty_lists()
             else:
-                print("Please choose another option!")
+                print("There are currently only 4 language-modes available. Please choose another option!")
                 selection_menu()
         except:
                 print("Invalid input! Please choose a correct Number for the Programm\n")
@@ -107,49 +107,38 @@ def vocabset_storage(language, set):
     mecanico = ["ángulo", "cortocircuito", "eje", "contraste", "conductividad", "contrapeso", "inductividad",\
                 "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]    # (List) spanish translation for "mechanisch"
 
-### vocabset_create: an own vocab list can be created here ###
-def vocabset_create():
+### empty_lists: initializes two empty lists to save the own vocab list of the user ###
+def empty_lists():
     term = []
     definition = []
+    vocabset_create(term, definition)
+
+
+### vocabset_create: an own vocab list can be created here ###
+def vocabset_create(term, definition):
     x = 0
-    #while x == 0:
+    wordcount = 0
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
     newdef = input("Definition: ")          # New definition is asked
     definition.append(newdef)               # New definition is saved in list
-    x = continuing_create()
-    query(term, definition)
-        
-### continuing create: Checks if another Vocab shall be added or the mode shall be closed ###
-def continuing_create():
-    continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N): ")
-    if continuing == "Y":
-        return int(0)
-    elif continuing == "N":
-        return int(1)
-    else:
-        continuing_create()
+    while x == 0:
+        continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
+        if continuing == "Y":
+            x = 1
+            wordcount = wordcount + 1
+            vocabset_create(term, definition)
+        elif continuing == "N":
+            x = 1
+            query(term, definition, wordcount)
+        else:
+            print("Diese Eingabe kann leider nicht verarbeitet werden.")
+    
 
+    
 
 ### query:  ###
-def query(term, definition, language, mode):
-    try:
-        print("Which modus would you like to have?\nGerman to ", language[mode-1], "(1)\n or ", language[mode-1], "to german(2) or a mixed modus (3)?\n-----------------------\nPress (4) to get back to possible programms " )
-        modus= input("Press the number of the option you like to have: ")
-        
-        if modus=="1":
-            print("Please translate this word to ", language[modus-1])
-
-        elif modus=="2":
-            print("Please translate this word to German:")
-
-        elif modus=="3":
-            print("Please translate this word to German or to ", language[modus-1])
-        elif modus=="4":
-            vocabset_menu(mode)      
-    except:
-        print("Wrong input, please try again")
-
+def query(term, definition, number):
     print(term)
     print(definition)
 
