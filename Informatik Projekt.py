@@ -139,11 +139,11 @@ def vocabset_create(term, definition):
     definition.append(newdef)               # New definition is saved in list
     while x == 0:
         continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
-        if continuing == "Y":
+        if continuing == "Y" or "y":
             x = 1
             wordcount = wordcount + 1
             vocabset_create(term, definition)
-        elif continuing == "N":
+        elif continuing == "N" or "n":
             x = 1
             query(term, definition, wordcount)
         else:
