@@ -135,8 +135,8 @@ def vocabset_create(term, definition):
     number = 0
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
-    newdef = input("Definition: ")          # New definition is asked
-    definition.append(newdef)               # New definition is saved in list
+    newdef = input("Übersetzung: ")         # New translation is asked
+    definition.append(newdef)               # New translation is saved in list
     while x == 0:
         continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
         if continuing == "Y" or "y":
