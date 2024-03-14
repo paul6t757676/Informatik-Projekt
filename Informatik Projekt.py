@@ -45,8 +45,15 @@ def vocabset_menu(mode):
     modetranslation = [english, french, spanish]
 
     while True:
-        menu2 =  (print(modetranslation[mode-1]))
+        if mode == 1:
+           print("Kitchen: In the Kitchen (1)" + "\n" + "Nature: Out in the nature (2)" + "\n" + "Engineering: Mechanical English (3)" + "\n" + "Random: Random Vocabs (4)" + "\n")
+        elif mode==2:
+            print("Kitchen: Dans la cuisine (1)" + "\n" + "Nature: Dans la nature (2)" + "\n" + "Engineering: Francais mécanique (3)" + "\n" + "Random: Vocabulaire aléatoire (4)" + "\n")
+        elif mode==3:
+            print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Random: Vocabulario aleatorio (4)" + "\n")
+        #menu2 =  (print(modetranslation[mode-1]))
         chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): "))
+        
         try:
             if mode == 1:
                 print("Language chosen: " , (language[mode-1]), (print(modetranslation[mode-1])))
