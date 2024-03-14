@@ -134,10 +134,8 @@ def empty_lists():
 def vocabset_create(term, definition):
     x = 0
     number = 0
-    print("Enter a word you'd like to train:")
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
-    print("Enter the translation for your word:")
     newdef = input("Übersetzung: ")         # New translation is asked
     definition.append(newdef)               # New translation is saved in list
     while x == 0:
