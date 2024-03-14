@@ -156,11 +156,11 @@ def vocabset_create(term, definition):
     definition.append(newdef)               # New translation is saved in list
     while x == 0:
         continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
-        if continuing == "Y" or "y":
+        if continuing == "Y":
             x = 1
             number = number + 1
             vocabset_create(term, definition)
-        elif continuing == "N" or "n":
+        elif continuing == "N":
             x = 1
             query(term, definition, number)
         else:
