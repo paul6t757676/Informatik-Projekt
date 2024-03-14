@@ -30,7 +30,7 @@ def selection_menu():
             elif mode == 4:
                 vocabset_create()
             else:
-                print("Please choose another option!")
+                print("There are currently only 4 language-modes available. Please choose another option!")
                 selection_menu()
         except:
                 print("Invalid input! Please choose a correct Number for the Programm\n")
