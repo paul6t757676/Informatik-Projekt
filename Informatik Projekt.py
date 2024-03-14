@@ -132,7 +132,7 @@ def empty_lists():
 ### vocabset_create: an own vocab list can be created here ###
 def vocabset_create(term, definition):
     x = 0
-    wordcount = 0
+    number = 0
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
     newdef = input("Definition: ")          # New definition is asked
@@ -141,11 +141,11 @@ def vocabset_create(term, definition):
         continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
         if continuing == "Y":
             x = 1
-            wordcount = wordcount + 1
+            number = number + 1
             vocabset_create(term, definition)
         elif continuing == "N":
             x = 1
-            query(term, definition, wordcount)
+            query(term, definition, number)
         else:
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
     
