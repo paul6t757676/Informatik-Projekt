@@ -46,7 +46,7 @@ def vocabset_menu(mode):
 
     while True:
         if mode == 1:
-           print("Kitchen: In the Kitchen (1)" + "\n" + "Nature: Out in the nature (2)" + "\n" + "Engineering: Mechanical English (3)" + "\n" + "Random: Random Vocabs (4)" + "\n")
+            print("Kitchen: In the Kitchen (1)" + "\n" + "Nature: Out in the nature (2)" + "\n" + "Engineering: Mechanical English (3)" + "\n" + "Random: Random Vocabs (4)" + "\n")
         elif mode==2:
             print("Kitchen: Dans la cuisine (1)" + "\n" + "Nature: Dans la nature (2)" + "\n" + "Engineering: Francais mécanique (3)" + "\n" + "Random: Vocabulaire aléatoire (4)" + "\n")
         elif mode==3:
@@ -132,7 +132,24 @@ def continuing_create():
 
 
 ### query:  ###
-def query(term, definition):
+def query(term, definition, language, mode):
+    try:
+        print("Which modus would you like to have?\nGerman to ", language[mode-1], "(1)\n or ", language[mode-1], "to german(2) or a mixed modus (3)?\n-----------------------\nPress (4) to get back to possible programms " )
+        modus= input("Press the number of the option you like to have: ")
+        
+        if modus=="1":
+            print("Please translate this word to ", language[modus-1])
+
+        elif modus=="2":
+            print("Please translate this word to German:")
+
+        elif modus=="3":
+            print("Please translate this word to German or to ", language[modus-1])
+        elif modus=="4":
+            vocabset_menu(mode)      
+    except:
+        print("Wrong input, please try again")
+
     print(term)
     print(definition)
 
