@@ -115,18 +115,18 @@ def vocabset_create():
         term.append(newword)                    # New technical term is saved in  list
         newdef = input("Definition: ")          # New definition is asked
         definition.append(newdef)               # New definition is saved in list
-        x = print(continuing_create())
+        x = continuing_create()
     query(term, definition)
         
 ### continuing create: Checks if another Vocab shall be added or the mode shall be closed ###
 def continuing_create():
     continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N): ")
     if continuing == "Y":
-        return 0
+        return int(0)
     elif continuing == "N":
-        return 1
+        return int(1)
     else:
-        return continuing_create()
+        continuing_create()
 
 
 ### query:  ###
