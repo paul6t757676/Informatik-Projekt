@@ -143,10 +143,10 @@ def vocabset_create(term, definition):
     number = 0
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
-    newdef = input("Übersetzung: ")         # New translation is asked
+    newdef = input("Uebersetzung: ")         # New translation is asked
     definition.append(newdef)               # New translation is saved in list
     while x == 0:
-        continuing = input("Möchtest du ein weiteres Wort hinzufügen? (Y/N) ")
+        continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")
         if continuing == "Y":
             x = 1
             number = number + 1
@@ -175,9 +175,9 @@ def query_status_safe(number):
 ### query: queries the chosen vocabs with different modes available ###
 #######################################################################
 def query(term, definition, number):
-    print("\n-----------------------\nWelchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
-              (3) Einen Zufalls-Modus\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
-    modus = input("Geben Sie die Zahl des Modus ein, welchen sie auswählen möchten: ")          # the mode of the query can be chosen
+    print("\n-----------------------\nWelchen Modus moechten Sie waehlen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
+              (3) Einen Zufalls-Modus\n-----------------------\nDruecken Sie (4) um zu der Themenwahl zurueckzukehren " )
+    modus = input("Geben Sie die Zahl des Modus ein, welchen sie auswaehlen moechten: ")          # the mode of the query can be chosen
 
     try:
                        
@@ -194,7 +194,7 @@ def query(term, definition, number):
             inputt = definition
 
         elif modus=="3":
-            print("Es wird zufällig abgefragt! ")
+            print("Es wird zufaellig abgefragt! ")
             random_query(term, definition, number)                      # continues in random_query
         elif modus=="4":
             vocabset_menu()                                             # returns to choosing the vocabset
@@ -205,7 +205,7 @@ def query(term, definition, number):
     while continuing == True:
         vocab = random.uniform(0, number)
         if statussafe[vocab] == False:                                          # checks if the vocab has already been translated correctly
-            translation = input("Bitte geben Sie die Übersetzung von ", output[vocab], " ein: " )
+            translation = input("Bitte geben Sie die Uebersetzung von ", output[vocab], " ein: " )
             if translation == inputt[vocab]:                                     # checks if the answer is right
                 statussafe[vocab] == True                                       # notices the vocab as right translated
                 print("Richtig!")
@@ -214,10 +214,10 @@ def query(term, definition, number):
                 print("Die Antwort war leider falsch!")
             if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
                 continuing = False
-                print("Sie haben alle Vokabeln richtig übersetzt!\nGlückwunsch!")
+                print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!")
                 while True:
                     try:
-                        menu = int(input("Was möchten Sie als nächstes tun?\n(1) Das Vokabelset wiederholen\n(2) Zurück zum Hauptmenü\n(3) Programm beenden"))
+                        menu = int(input("Was möchten Sie als naechstes tun?\n(1) Das Vokabelset wiederholen\n(2) Zurueck zum Hauptmenue\n(3) Programm beenden"))
                         match menu:
                             case 1:
                                 query(term, definition, number)
@@ -230,7 +230,7 @@ def query(term, definition, number):
                         print("Diese Eingabe kann nicht verarbeitet werden!")
 
             else: 
-                c = input("Drücken Sie Enter, um fortzufahren, oder N, um ins Hauptmenue zurueckzukehren!")
+                c = input("Druecken Sie Enter, um fortzufahren, oder N, um ins Hauptmenue zurueckzukehren!")
                 if c == "N":
                     continuing = False
                     selection_menu()                                           # jumps back into the selection menu if N was chosen
@@ -239,8 +239,8 @@ def query(term, definition, number):
 
 
 def random_query(term, definition, number):
-    statussafe_de = query_status_safe(number)                   # creates a list to safe the known german word
-    statussafe_fo = query_status_safe(number)                   # creates a list to safe the known foreign words
+    statussafe_de = query_status_safe(number)                   # creates a list to safe the german words that were guessed right
+    statussafe_fo = query_status_safe(number)                   # creates a list to safe the words in the second language, that were guessed right
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
