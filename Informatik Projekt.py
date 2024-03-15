@@ -15,6 +15,7 @@
 import os           ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
 import vocablibrary
 import random       ### imported random library to generate random numbers for the query
+import sys          ### imported sys library to stop the programm
 def selection_menu():
     while True:
         print("Welcome to our vocab-trainer. Below you find a list of different languages and other options to select." + "\n" + "Just enter the number of the mode you'd like to train and follow the instructions.")
@@ -180,10 +181,14 @@ def query(term, definition, number):
         if modus=="1":
             print("Es wird Deutsch zu Fremdsprach abgefragt! ")
             statussafe = query_status_safe(number)                      # creates a list to safe the known german words
+            output = definition
+            input = term
 
         elif modus=="2":
             print("Es wird Fremdsprache zu Deutsch abgefragt! ")
             statussafe = query_status_safe(number)                      # creates a list to safe the known foreign words
+            output = term
+            input = definition
 
         elif modus=="3":
             print("Es wird zufällig abgefragt! ")
@@ -193,7 +198,39 @@ def query(term, definition, number):
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
 
+    counter = 0
     while continuing == True:
+        vocab = random.uniform(0, number)
+        if statussafe(vocab) == False:                                          # checks if the vocab has already been translated correctly
+            translation = input("Bitte geben Sie die Übersetzung von ", output(vocab), " ein: " )
+            if translation == input(vocab):                                     # checks if the answer is right
+                statussafe(vocab) == True                                       # notices the vocab as right translated
+                print("Richtig!")
+                counter =+ 1                                                    # counts the word as right translated
+            else:
+                print("Die Antwort war leider falsch!")
+            if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
+                continuing = False
+                print("Sie haben alle Vokabeln richtig übersetzt!\nGlückwunsch!")
+                while True:
+                    try:
+                        menu = int(input("Was möchten Sie als nächstes tun?\n(1) Das Vokabelset wiederholen\n(2) Zurück zum Hauptmenü\n(3) Programm beenden"))
+                        match menu:
+                            case 1:
+                                query(term, definition, number)
+                            case 2:
+                                selection_menu()
+                            case 3:
+                                print("Programm wird beendet")
+                                sys.exit()
+
+            else: 
+                c = input("Drücken Sie Enter, um fortzufahren, oder N, um ins Hauptmenue zurueckzukehren!")
+                if c == "N":
+                    continuing = False
+                    selection_menu()                                           # jumps back into the selection menu if N was chosen
+            
+                
 
 
 def random_query(term, definition, number):
