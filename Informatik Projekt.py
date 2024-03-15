@@ -166,7 +166,7 @@ def query_status_safe(number):
     statussafe = []
     while x <= number:
         statussafe.append(False)
-        x =+ 1
+        x += 1
     return statussafe
 
 
@@ -175,24 +175,23 @@ def query_status_safe(number):
 ### query: queries the chosen vocabs with different modes available ###
 #######################################################################
 def query(term, definition, number):
-    try:
-        print("\n-----------------------\nWelchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
+    print("\n-----------------------\nWelchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
               (3) Einen Zufalls-Modus\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
-        modus = input("Geben Sie die Zahl des Modus ein, welchen sie auswählen möchten: ")                                                    # the mode of the query can be chosen
-        continuing = True                                                                                                                       # True if the query shall be continued, False if it shall be ended
+    modus = input("Geben Sie die Zahl des Modus ein, welchen sie auswählen möchten: ")          # the mode of the query can be chosen
 
-        
+    try:
+                       
         if modus=="1":
             print("Es wird Deutsch zu Fremdsprach abgefragt! ")
             statussafe = query_status_safe(number)                      # creates a list to safe the known german words
             output = definition
-            input = term
+            inputt = term
 
         elif modus=="2":
             print("Es wird Fremdsprache zu Deutsch abgefragt! ")
             statussafe = query_status_safe(number)                      # creates a list to safe the known foreign words
             output = term
-            input = definition
+            inputt = definition
 
         elif modus=="3":
             print("Es wird zufällig abgefragt! ")
@@ -201,14 +200,14 @@ def query(term, definition, number):
             vocabset_menu()                                             # returns to choosing the vocabset
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
-
+    continuing = True                                                           # True if the query shall be continued, False if it shall be ended
     counter = 0
     while continuing == True:
         vocab = random.uniform(0, number)
-        if statussafe(vocab) == False:                                          # checks if the vocab has already been translated correctly
-            translation = input("Bitte geben Sie die Übersetzung von ", output(vocab), " ein: " )
-            if translation == input(vocab):                                     # checks if the answer is right
-                statussafe(vocab) == True                                       # notices the vocab as right translated
+        if statussafe[vocab] == False:                                          # checks if the vocab has already been translated correctly
+            translation = input("Bitte geben Sie die Übersetzung von ", output[vocab], " ein: " )
+            if translation == inputt[vocab]:                                     # checks if the answer is right
+                statussafe[vocab] == True                                       # notices the vocab as right translated
                 print("Richtig!")
                 counter =+ 1                                                    # counts the word as right translated
             else:
