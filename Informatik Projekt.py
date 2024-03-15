@@ -57,21 +57,20 @@ def vocabset_menu(mode):
         try:
             if mode == 1:
                 print("Kitchen: In the Kitchen (1)" + "\n" + "Nature: Out in the nature (2)" + "\n" + "Engineering: Mechanical English (3)" + "\n" + "Random: Random Vocabs (4)" + "\n")
-                break
+                #vocabset_storage(mode, chosen_program)
             elif mode==2:
                 print("Kitchen: Dans la cuisine (1)" + "\n" + "Nature: Dans la nature (2)" + "\n" + "Engineering: Francais mécanique (3)" + "\n" + "Random: Vocabulaire aléatoire (4)" + "\n")
-                break
             elif mode==3:
                 print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Random: Vocabulario aleatorio (4)" + "\n")
-                break
             elif mode==4:
                 selection_menu()
             #menu2 =  (print(modetranslation[mode-1]))
-            chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): " + "\n"))
+            chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): "))
+            vocabset_storage(mode, chosen_program)
         except:
             print("Diese Eingabe kann leider nicht verarbeitet werden! ")
 
-    vocabset_storage(mode, chosen_program)
+    
        
             
 #############################################################
@@ -172,14 +171,14 @@ def query_status_safe(number):
 
 
     
-############################################################################
-### query: interrogates the chosen vocabs with different modes available ###
-############################################################################
+#######################################################################
+### query: queries the chosen vocabs with different modes available ###
+#######################################################################
 def query(term, definition, number):
     try:
         print("\n-----------------------\nWelchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
               (3) Einen Zufalls-Modus\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
-        modus= input("Geben Sie die Zahl des Modus ein, welchen sie auswählen möchten: ")                                                       # the mode of the query can be chosen
+        modus = input("Geben Sie die Zahl des Modus ein, welchen sie auswählen möchten: ")                                                    # the mode of the query can be chosen
         continuing = True                                                                                                                       # True if the query shall be continued, False if it shall be ended
 
         
