@@ -14,6 +14,7 @@
 
 import os           ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
 import vocablibrary
+import random       ### imported random library to generate random numbers for the query
 def selection_menu():
     while True:
         print("Welcome to our vocab-trainer. Below you find a list of different languages and other options to select." + "\n" + "Just enter the number of the mode you'd like to train and follow the instructions.")
@@ -46,22 +47,25 @@ def selection_menu():
 def vocabset_menu(mode):
     language = ["English", "French", "Spanish", "Create your own list:", help] 
     menu2 = print("Language chosen: " , (language[mode-1]),"\n-----------------------\nPossible Topics:\n")
-    english = ["Kitchen: In the Kitchen (1)", "Nature: Out in the nature (2)", "Engineering: Mechanical English (3)", "Random: Random Vocabs (4)"]
-    french = ["Kitchen: Dans la cuisine (1)", "Nature: Dans la nature (2)", "Engineering: Francais mécanique (3)", "Random: Vocabulaire aléatoire (4)"]
-    spanish = ["Kitchen: En la cocina (1)", "Nature: En la naturaleza (2)", "Engineering: Espanol mecánico (3)", "Random: Vocabulario aleatorio (4)"]
+    english = ["Kitchen: In the Kitchen (1)", "Nature: Out in the nature (2)", "Engineering: Mechanical English (3)", "Return to Language Menu (4)"]
+    french = ["Kitchen: Dans la cuisine (1)", "Nature: Dans la nature (2)", "Engineering: Francais mécanique (3)", "Return to Language Menu (4)"]
+    spanish = ["Kitchen: En la cocina (1)", "Nature: En la naturaleza (2)", "Engineering: Espanol mecánico (3)", "Return to Language Menu (4)"]
     modetranslation = [english, french, spanish]
 
     while True:
-        if mode == 1:
-            print("Kitchen: In the Kitchen (1)" + "\n" + "Nature: Out in the nature (2)" + "\n" + "Engineering: Mechanical English (3)" + "\n" + "Random: Random Vocabs (4)" + "\n")
-        elif mode==2:
-            print("Kitchen: Dans la cuisine (1)" + "\n" + "Nature: Dans la nature (2)" + "\n" + "Engineering: Francais mécanique (3)" + "\n" + "Random: Vocabulaire aléatoire (4)" + "\n")
-        elif mode==3:
-            print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Random: Vocabulario aleatorio (4)" + "\n")
-        elif mode==4:
-            selection_menu()
-        #menu2 =  (print(modetranslation[mode-1]))
-        chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): " + "\n"))
+        try:
+            if mode == 1:
+                print("Kitchen: In the Kitchen (1)" + "\n" + "Nature: Out in the nature (2)" + "\n" + "Engineering: Mechanical English (3)" + "\n" + "Random: Random Vocabs (4)" + "\n")
+            elif mode==2:
+                print("Kitchen: Dans la cuisine (1)" + "\n" + "Nature: Dans la nature (2)" + "\n" + "Engineering: Francais mécanique (3)" + "\n" + "Random: Vocabulaire aléatoire (4)" + "\n")
+            elif mode==3:
+                print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Random: Vocabulario aleatorio (4)" + "\n")
+            elif mode==4:
+                selection_menu()
+            #menu2 =  (print(modetranslation[mode-1]))
+            chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): " + "\n"))
+        except:
+            print("Diese Eingabe kann leider nicht verarbeitet werden! ")
        
             
 #############################################################
@@ -149,6 +153,7 @@ def vocabset_create(term, definition):
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
     
 
+def query_status_safe()
     
 ############################################################################
 ### query: interrogates the chosen vocabs with different modes available ###
@@ -157,7 +162,9 @@ def query(term, definition, number):
     try:
         print("\n-----------------------\nWelchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
               (3) Einen Zufalls-Modus\n-----------------------\nDrücke Sie (4) um zu der Themenwahl zurückzukehren " )
-        modus= input("Gebn Sie die Zahl des Modi ein, welchen sie auswählen möchten: ")
+        modus= input("Geben Sie die Zahl des Modus ein, welchen sie auswählen möchten: ")                                                       # the mode of the query can be chosen
+        continuing = True                                                                                                                       # True if the query shall be continued, False if it shall be ended
+
         
         if modus=="1":
             print("Bitte Übersetzen sie folgendes Wort: ")
@@ -171,6 +178,8 @@ def query(term, definition, number):
             vocabset_menu()      
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
+
+    while continuing == True:
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
