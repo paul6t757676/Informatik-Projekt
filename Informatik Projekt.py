@@ -151,9 +151,20 @@ def vocabset_create(term, definition):
             query(term, definition, number)
         else:
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
-    
 
-def query_status_safe()
+
+#################################################################################################
+### query_status_safe: creates a list to safe if a word was translated correctly in the query ###   
+#################################################################################################
+def query_status_safe(number):
+    x = 0
+    statussafe = []
+    while x <= number:
+        statussafe.append(False)
+        x =+ 1
+    return statussafe
+
+
     
 ############################################################################
 ### query: interrogates the chosen vocabs with different modes available ###
@@ -167,19 +178,27 @@ def query(term, definition, number):
 
         
         if modus=="1":
-            print("Bitte Übersetzen sie folgendes Wort: ")
+            print("Es wird Deutsch zu Fremdsprach abgefragt! ")
+            statussafe = query_status_safe(number)                      # creates a list to safe the known german words
 
         elif modus=="2":
-            print("Bitte Übersetzen sie folgendes Wort: ")
+            print("Es wird Fremdsprache zu Deutsch abgefragt! ")
+            statussafe = query_status_safe(number)                      # creates a list to safe the known foreign words
 
         elif modus=="3":
-            print("Bitte übersetzen Sie folgendes Wort: ")
+            print("Es wird zufällig abgefragt! ")
+            random_query(term, definition, number)                      # continues in random_query
         elif modus=="4":
-            vocabset_menu()      
+            vocabset_menu()                                             # returns to choosing the vocabset
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
 
     while continuing == True:
+
+
+def random_query(term, definition, number):
+    statussafe_de = query_status_safe(number)                   # creates a list to safe the known german word
+    statussafe_fo = query_status_safe(number)                   # creates a list to safe the known foreign words
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
