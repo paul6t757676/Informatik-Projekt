@@ -114,11 +114,11 @@ def vocabset_storage(language, set):
             query(cocina, kueche, 14)
     elif set == 2: 
         if language == 1:
-            query(kitchen, natur, 14)
+            query(nature_en, natur, 14)
         elif language == 2:
-            query(cuisine, natur, 14)
+            query(nature_fr, natur, 14)
         else:
-            query(cocina, natur, 14)
+            query(naturaleza, natur, 14)
     elif set == 3: 
         if language == 1:
             query(engineering, mechanisch, 14)
@@ -149,11 +149,12 @@ def vocabset_create(term, definition):
         continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")
         if continuing == "Y":
             x = 1
-            number = number + 1
+            number += 1
             vocabset_create(term, definition)
         elif continuing == "N":
             x = 1
-            query(term, definition, number)
+            print(len(term))
+            query(term, definition, len(term)-1)
         else:
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
 
@@ -184,13 +185,13 @@ def query(term, definition, number):
         if modus=="1":
             print("Es wird Deutsch zu Fremdsprach abgefragt! ")
             statussafe = query_status_safe(number)                      # creates a list to safe the known german words
-            output = definition
+            outputt = definition
             inputt = term
 
         elif modus=="2":
             print("Es wird Fremdsprache zu Deutsch abgefragt! ")
             statussafe = query_status_safe(number)                      # creates a list to safe the known foreign words
-            output = term
+            outputt = term
             inputt = definition
 
         elif modus=="3":
@@ -204,15 +205,17 @@ def query(term, definition, number):
     counter = 0
     while continuing == True:
         vocabnumber = random.randint(0, number)
-        print(statussafe[vocabnumber])
+        word = outputt[vocabnumber]
         if statussafe[vocabnumber] == False:                                          # checks if the vocab has already been translated correctly
-            trans = input()#"Bitte geben Sie die Übersetzung von ", output[vocabnumber], " ein: " )
-            if trans == inputt[vocabnumber]:                                     # checks if the answer is right
-                statussafe[vocabnumber] == True                                       # notices the vocab as right translated
+            print("Bitte geben Sie die Übersetzung von ", word, " ein: ")
+            translation = input()
+            if translation == inputt[vocabnumber]:                                     # checks if the answer is right
+                statussafe[vocabnumber] = True                                       # notices the vocab as right translated
                 print("Richtig!")
                 counter += 1                                                    # counts the word as right translated
+                print(counter)
             else:
-                print("Die Antwort war leider falsch!")
+                print("Die Antwort war leider falsch! Die korrekte Antwort wäre gewesen: ",inputt[vocabnumber])
             if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
                 continuing = False
                 print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!")
