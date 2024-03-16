@@ -141,9 +141,9 @@ def empty_lists():
 ##############################################################
 def vocabset_create(term, definition):
     x = 0
-    newword = input("Fachbegriff: ")        # New technical term is asked
+    newword = input("Fremdwort: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
-    newdef = input("Uebersetzung: ")         # New translation is asked
+    newdef = input("Deutsche Uebersetzung: ")         # New translation is asked
     definition.append(newdef)               # New translation is saved in list
     while x == 0:
         continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")
