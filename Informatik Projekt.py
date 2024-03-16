@@ -220,8 +220,7 @@ def query(term, definition, number):
             if translation == inputt[vocabnumber]:                                     # checks if the answer is right
                 statussafe[vocabnumber] = True                                       # notices the vocab as right translated
                 print("Richtig!")
-                counter += 1                                                    # counts the word as right translated
-                print(counter)
+                counter += 1  
             else:
                 print("Die Antwort war leider falsch! Die korrekte Antwort wäre gewesen: ",inputt[vocabnumber])
             if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
