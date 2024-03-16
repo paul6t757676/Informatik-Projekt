@@ -140,7 +140,6 @@ def empty_lists():
 ##############################################################
 def vocabset_create(term, definition):
     x = 0
-    number = 0
     newword = input("Fachbegriff: ")        # New technical term is asked
     term.append(newword)                    # New technical term is saved in  list
     newdef = input("Uebersetzung: ")         # New translation is asked
@@ -149,11 +148,9 @@ def vocabset_create(term, definition):
         continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")
         if continuing == "Y":
             x = 1
-            number += 1
             vocabset_create(term, definition)
         elif continuing == "N":
             x = 1
-            print(len(term))
             query(term, definition, len(term)-1)
         else:
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
@@ -184,26 +181,37 @@ def query(term, definition, number):
                        
         if modus=="1":
             print("Es wird Deutsch zu Fremdsprach abgefragt! ")
-            statussafe = query_status_safe(number)                      # creates a list to safe the known german words
+            #statussafe = query_status_safe(number)                      # creates a list to safe the known german words
             outputt = definition
             inputt = term
 
         elif modus=="2":
             print("Es wird Fremdsprache zu Deutsch abgefragt! ")
-            statussafe = query_status_safe(number)                      # creates a list to safe the known foreign words
+            #statussafe = query_status_safe(number)                      # creates a list to safe the known foreign words
             outputt = term
             inputt = definition
 
         elif modus=="3":
             print("Es wird zufaellig abgefragt! ")
-            random_query(term, definition, number)                      # continues in random_query
+            #random_query(term, definition, number)                      # continues in random_query
+
         elif modus=="4":
             vocabset_menu()                                             # returns to choosing the vocabset
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
     continuing = True                                                           # True if the query shall be continued, False if it shall be ended
     counter = 0
+    statussafe = query_status_safe(number)
+    
     while continuing == True:
+        if modus == "3":
+            random_direction = random.randint(0, 1)                         # creates a random number to decide which direction is asked
+            if random_direction == 0:                                       # if the number is 0, the foreign word gets asked
+                outputt = term
+                inputt = definition
+            else:                                                           # if the number is 1, the german word gets asked
+                outputt = definition
+                inputt = term
         vocabnumber = random.randint(0, number)
         word = outputt[vocabnumber]
         if statussafe[vocabnumber] == False:                                          # checks if the vocab has already been translated correctly
@@ -229,7 +237,7 @@ def query(term, definition, number):
                                 selection_menu()
                             case 3:
                                 print("Programm wird beendet")
-                                sys.exit()
+                                exit()
                     except:
                         print("Diese Eingabe kann nicht verarbeitet werden!")
 
@@ -244,7 +252,8 @@ def query(term, definition, number):
 
 def random_query(term, definition, number):
     statussafe_de = query_status_safe(number)                   # creates a list to safe the german words that were guessed right
-    statussafe_fo = query_status_safe(number)                   # creates a list to safe the words in the second language, that were guessed right
+    statussafe_fo = query_status_safe(number)                   # creates a list to safe the words in the second language that were guessed right
+
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
 selection_menu()
