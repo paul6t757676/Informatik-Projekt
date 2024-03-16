@@ -203,13 +203,14 @@ def query(term, definition, number):
     continuing = True                                                           # True if the query shall be continued, False if it shall be ended
     counter = 0
     while continuing == True:
-        vocab = random.uniform(0, number)
-        if statussafe[vocab] == False:                                          # checks if the vocab has already been translated correctly
-            translation = input("Bitte geben Sie die Übersetzung von ", output[vocab], " ein: " )
-            if translation == inputt[vocab]:                                     # checks if the answer is right
-                statussafe[vocab] == True                                       # notices the vocab as right translated
+        vocabnumber = random.randint(0, number)
+        print(statussafe[vocabnumber])
+        if statussafe[vocabnumber] == False:                                          # checks if the vocab has already been translated correctly
+            trans = input()#"Bitte geben Sie die Übersetzung von ", output[vocabnumber], " ein: " )
+            if trans == inputt[vocabnumber]:                                     # checks if the answer is right
+                statussafe[vocabnumber] == True                                       # notices the vocab as right translated
                 print("Richtig!")
-                counter =+ 1                                                    # counts the word as right translated
+                counter += 1                                                    # counts the word as right translated
             else:
                 print("Die Antwort war leider falsch!")
             if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
