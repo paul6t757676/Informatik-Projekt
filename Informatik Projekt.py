@@ -44,19 +44,8 @@ def selection_menu():
                 print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n")
                 selection_menu()
 
-#####################################################################
-### vocabset_menu: one of the available vocab lists can be chosen ###
-#####################################################################
-def vocabset_menu(mode):
 
-    
-            
-            
-        
-
-    
-       
-            
+         
 #############################################################
 ### vocab-set storage: All the vocab sets are stored here ###
 #############################################################
