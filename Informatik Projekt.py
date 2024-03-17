@@ -14,6 +14,7 @@
 
 import os           ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
 import vocablibrary
+import creating
 import random       ### imported random library to generate random numbers for the query
 import sys          ### imported sys library to stop the programm
 def selection_menu():
@@ -32,7 +33,7 @@ def selection_menu():
                 print(help)
                 selection_menu()
             elif mode<4:
-                vocabset_menu(mode)
+                vocabset_storage(mode)
             elif mode == 4:
                 empty_lists()
             else:
@@ -48,26 +49,15 @@ def selection_menu():
 def vocabset_menu(mode):
     language = ["English", "French", "Spanish", "Create your own list:", help] 
     menu2 = print("Language chosen: " , (language[mode-1]),"\n-----------------------\nPossible Topics:\n")
-    english = ["Kitchen: In the Kitchen (1)", "Nature: Out in the nature (2)", "Engineering: Mechanical English (3)", "Return to Language Menu (4)"]
+    english = ["(1) Kitchen: In the Kitchen ", "(2) Nature: Out in the nature ", "Engineering: Mechanical English (3)", "Return to Language Menu (4)"]
     french = ["Kitchen: Dans la cuisine (1)", "Nature: Dans la nature (2)", "Engineering: Francais mécanique (3)", "Return to Language Menu (4)"]
     spanish = ["Kitchen: En la cocina (1)", "Nature: En la naturaleza (2)", "Engineering: Espanol mecánico (3)", "Return to Language Menu (4)"]
     modetranslation = [english, french, spanish]
 
-    while True:
-        try:
-            if mode == 1:
-                print("Kitchen: In the Kitchen (1)" + "\n" + "Nature: Out in the nature (2)" + "\n" + "Engineering: Mechanical English (3)" + "\n" + "Return to Language Menu (4)" + "\n")
-                #vocabset_storage(mode, chosen_program)
-            elif mode==2:
-                print("Kitchen: Dans la cuisine (1)" + "\n" + "Nature: Dans la nature (2)" + "\n" + "Engineering: Francais mécanique (3)" + "\n" + "Return to Language Menu (4)" + "\n")
-            elif mode==3:
-                print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Return to Language Menu (4)" + "\n")
-            elif mode==4:
-                selection_menu()
-            chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): "))
-            vocabset_storage(mode, chosen_program)
-        except:
-            print("Diese Eingabe kann leider nicht verarbeitet werden! ")
+    
+            
+            
+        
 
     
        
@@ -75,7 +65,7 @@ def vocabset_menu(mode):
 #############################################################
 ### vocab-set storage: All the vocab sets are stored here ###
 #############################################################
-def vocabset_storage(language, set):
+def vocabset_storage(language):
     kueche = ["Ofen", "Herd", "Kühlschrank", "Kochtopf", "Toaster", "Messer", "Pfanne", "Glas",\
               "Löffel", "Gabel", "Teller", "Spülmaschine", "Spüle", "Pfannenwender", "Gewürze"]
     natur = ["Baum", "Wiese", "Blume", "Park", "Vogel", "Brunnen", "Teich", "Eichhörnchen",\
@@ -103,30 +93,43 @@ def vocabset_storage(language, set):
                  "densité", "équation", "frottement", "mise à la terre", "mesurer", "résistance", "tension", "capacité"]    # (List) french translation for "mechanisch"
     mecanico = ["ángulo", "cortocircuito", "eje", "contraste", "conductividad", "contrapeso", "inductividad",\
                 "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]    # (List) spanish translation for "mechanisch"
-    
-    if set == 1:
-        if language == 1:
-            query(kitchen, kueche, 14)
-        elif language == 2:
-            query(cuisine, kueche, 14)
-        else:
-            query(cocina, kueche, 14)
-    elif set == 2: 
-        if language == 1:
-            query(nature_en, natur, 14)
-        elif language == 2:
-            query(nature_fr, natur, 14)
-        else:
-            query(naturaleza, natur, 14)
-    elif set == 3: 
-        if language == 1:
-            query(engineering, mechanisch, 14)
-        elif language == 2:
-            query(mecanique, mechanisch, 14)
-        else:
-            query(mecanico, mechanisch, 14)
-    elif set == 4:
-        selection_menu()
+    while True:
+        try:
+            if language == 1:
+                print("(1) Kitchen: In the Kitchen" + "\n" + "(2) Nature: Out in the nature" + "\n" + "(3) Engineering: Mechanical English" + "\n" + "(4) Return to Language Menu" + "\n")
+                #vocabset_storage(mode, chosen_program)
+            elif language==2:
+                print("(1) Kitchen: Dans la cuisine" + "\n" + "(2) Nature: Dans la nature" + "\n" + "(3) Engineering: Francais mécanique" + "\n" + "(4) Return to Language Menu" + "\n")
+            elif language==3:
+                print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Return to Language Menu (4)" + "\n")
+            elif language==4:
+                selection_menu()
+            set = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): "))
+            if set == 1:
+                if language == 1:
+                    query(kitchen, kueche, 14)
+                elif language == 2:
+                    query(cuisine, kueche, 14)
+                else:
+                    query(cocina, kueche, 14)
+            elif set == 2: 
+                if language == 1:
+                    query(nature_en, natur, 14)
+                elif language == 2:
+                    query(nature_fr, natur, 14)
+                else:
+                    query(naturaleza, natur, 14)
+            elif set == 3: 
+                if language == 1:
+                    query(engineering, mechanisch, 14)
+                elif language == 2:
+                    query(mecanique, mechanisch, 14)
+                else:
+                    query(mecanico, mechanisch, 14)
+            elif set == 4:
+                selection_menu()
+        except:
+            print("Diese Eingabe kann leider nicht verarbeitet werden! ")
 
 #######################################################################################
 ### empty_lists: initializes two empty lists to save the own vocab list of the user ###
@@ -135,6 +138,20 @@ def empty_lists():
     term = []
     definition = []
     vocabset_create(term, definition)
+
+
+#################################################################################################
+### query_status_safe: creates a list to safe if a word was translated correctly in the query ###   
+#################################################################################################
+def query_status_safe(number):
+    x = 0
+    statussafe = []
+    while x <= number:
+        statussafe.append(False)
+        x += 1
+    return statussafe
+
+
 
 ##############################################################
 ### vocabset_create: an own vocab list can be created here ###
@@ -156,17 +173,6 @@ def vocabset_create(term, definition):
         else:
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
 
-
-#################################################################################################
-### query_status_safe: creates a list to safe if a word was translated correctly in the query ###   
-#################################################################################################
-def query_status_safe(number):
-    x = 0
-    statussafe = []
-    while x <= number:
-        statussafe.append(False)
-        x += 1
-    return statussafe
 
 
     
@@ -229,15 +235,15 @@ def query(term, definition, number):
                 print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!")
                 while True:
                     try:
-                        menu = int(input("Was möchten Sie als naechstes tun?\n(1) Das Vokabelset wiederholen\n(2) Zurueck zum Hauptmenue\n(3) Programm beenden"))
+                        menu = input("Was möchten Sie als naechstes tun?\n(1) Das Vokabelset wiederholen\n(2) Zurueck zum Hauptmenue\n(3) Programm beenden\n")
                         match menu:
-                            case 1:
+                            case "1":
                                 query(term, definition, number)
-                            case 2:
+                            case "2":
                                 selection_menu()
-                            case 3:
+                            case "3":
                                 print("Programm wird beendet")
-                                exit()
+                                print(quit())
                     except:
                         print("Diese Eingabe kann nicht verarbeitet werden!")
 
@@ -249,10 +255,6 @@ def query(term, definition, number):
             
                 
 
-
-def random_query(term, definition, number):
-    statussafe_de = query_status_safe(number)                   # creates a list to safe the german words that were guessed right
-    statussafe_fo = query_status_safe(number)                   # creates a list to safe the words in the second language that were guessed right
 
 
 # "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
