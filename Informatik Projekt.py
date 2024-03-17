@@ -27,9 +27,10 @@ def selection_menu():
         try:
             mode = int(input("Um eine Sprache auszuwählen, oder um Ihre eigene Liste zu erstellen, geben Sie eine Nummer (1 - 4) ein. Geben Sie '5' ein, um Hilfe zu bekommen: "))  
             os.system('cls' if os.name == 'nt' else 'clear')                                         #select chosen option 
-            help = "\nHelp needed? This program is a vocabulary-trainer. It can support you improving your language skills by asking you for the correct\
-                translation of different vocabs. There are different languages and modes you can select. You can either improve your english, spanish,\
-                or your french skills, or as an extra option you can create your own vocab list, which will be used for your vocab training.\n-----------------------"
+            help = "\nSie brauchen Hilfe? Bei diesem Programm handelt es sich um einen Vokabeltrainer. Er kann Sie dabei unterstützen, Ihre Sprachkenntnisse zu trainieren und zu erweitern, indem es Sie verschiedene Vokabeln abfragt.\
+Sie können in den verschiedenen Menüs, verschiedene Modi auswählen. Bei diesen Modi handelt es sich zum einen um unterschiedliche Sprachen und zum andern um einen zusätzlichen Modus, bei welchem Sie ihre eigenen Vokabel-Listen zum lernen erstellen können.\
+Die verfügbaren Sprachen sind in der aktuellsten Version Englisch, Französisch und Spanisch. Nach der Sprachauswahl, können Sie noch einmal zwischen unterschiedlichen Vokabel-Paketen wählen Der Rest des Programmes erklärt sich dann von alleine!.\
+Sollten Sie ein Mal eine Vokabel falsch übersetzt haben, macht sie das Programm hierauf ebenfalls aufmerksam.\nViel Spaß beim lernen!\n-----------------------"
             if mode == 5:
                 print(help)
                 selection_menu()
