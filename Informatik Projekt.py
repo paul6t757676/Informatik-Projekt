@@ -217,19 +217,20 @@ def query(term, definition, number):
                 statussafe[vocabnumber] = True                                       # notices the vocab as right translated
                 print("Richtig!")
                 score += 100                                                # increases the score with 100
-                print("Sie haben 100 Punkte erhalten!\nIhr neuer Score beträgt: ", score)
+                print("\n-----------------------\nSie haben 100 Punkte erhalten!\nIhr neuer Score beträgt: ", score)
                 counter += 1                                                # updates the counter of right answers
             else:
                 print("\nDie Antwort war leider falsch! Die korrekte Antwort wäre gewesen: ",inputt[vocabnumber])
                 score -= 50                                                # decreases the score with 100
-                print("Sie haben 50 Punkte verloren!\nIhr neuer Score beträgt: ", score)
+                print("\n-----------------------\nSie haben 50 Punkte verloren!\nIhr neuer Score beträgt: ", score)
             if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
                 continuing = False
-                print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!\nIhr Endscore beträgt: ", score)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!\n-----------------------\nIhr Endscore beträgt: ", score)
                 while True:
                     try:
-                        menu = input("Was möchten Sie als naechstes tun?\n(1) Das Vokabelset wiederholen\n\
-                        (2) Zurueck zum Hauptmenue\n(3) Programm beenden\n")    # asks what the user wants to do now
+                        menu = input("-----------------------\nWas möchten Sie als naechstes tun?\n\n(1) Das Vokabelset wiederholen\n\
+(2) Zurueck zum Hauptmenue\n(3) Programm beenden\n")    # asks what the user wants to do now
                         os.system('cls' if os.name == 'nt' else 'clear')
                         match menu:
                             case "1":
