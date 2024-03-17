@@ -88,7 +88,7 @@ def vocabset_storage(language):
                 print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Return to Language Menu (4)" + "\n")
             elif language==4:
                 selection_menu()
-            set = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): "))
+            set = int(input("-----------------------\nWählen Sie aus obiger Liste ein spezifisches Thema aus, welches Sie lernen wollen, oder kehren Sie zum Sprach-Menü zurück (1 - 4): "))
             if set == 1:
                 if language == 1:
                     query(kitchen, kueche, 14)
