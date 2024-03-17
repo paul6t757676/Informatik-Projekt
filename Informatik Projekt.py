@@ -28,9 +28,10 @@ Geben Sie einfach die Nummer des Modus ein, den Sie auswählen wollen und folgen
         try:
             mode = int(input("Um eine Sprache auszuwählen, oder um Ihre eigene Liste zu erstellen, geben Sie eine Nummer (1 - 4) ein. Geben Sie '5' ein, um Hilfe zu bekommen: "))  
             os.system('cls' if os.name == 'nt' else 'clear')                                         #select chosen option 
-            help = "\nHelp needed? This program is a vocabulary-trainer. It can support you improving your language skills by asking you for the correct\
-                translation of different vocabs. There are different languages and modes you can select. You can either improve your english, spanish,\
-                or your french skills, or as an extra option you can create your own vocab list, which will be used for your vocab training.\n-----------------------"
+            help = "\nSie brauchen Hilfe? Bei diesem Programm handelt es sich um einen Vokabeltrainer. Er kann Sie dabei unterstützen, Ihre Sprachkenntnisse zu trainieren und zu erweitern, indem es Sie verschiedene Vokabeln abfragt.\
+Sie können in den verschiedenen Menüs, verschiedene Modi auswählen. Bei diesen Modi handelt es sich zum einen um unterschiedliche Sprachen und zum andern um einen zusätzlichen Modus, bei welchem Sie ihre eigenen Vokabel-Listen zum lernen erstellen können.\
+Die verfügbaren Sprachen sind in der aktuellsten Version Englisch, Französisch und Spanisch. Nach der Sprachauswahl, können Sie noch einmal zwischen unterschiedlichen Vokabel-Paketen wählen Der Rest des Programmes erklärt sich dann von alleine!.\
+Sollten Sie ein Mal eine Vokabel falsch übersetzt haben, macht sie das Programm hierauf ebenfalls aufmerksam.\nViel Spaß beim lernen!\n-----------------------"
             if mode == 5:
                 print(help)
                 selection_menu()
@@ -47,7 +48,7 @@ Geben Sie einfach die Nummer des Modus ein, den Sie auswählen wollen und folgen
                 selection_menu()
 
 
-         
+
 #############################################################
 ### vocab-set storage: All the vocab sets are stored here ###
 #############################################################
@@ -148,18 +149,18 @@ def query_status_safe(number):
 ### vocabset_create: an own vocab list can be created here ###
 ##############################################################
 def vocabset_create(term, definition):
-    x = 0
-    newword = input("Fremdwort: ")        # New technical term is asked
-    term.append(newword)                    # New technical term is saved in  list
-    newdef = input("Deutsche Uebersetzung: ")         # New translation is asked
-    definition.append(newdef)               # New translation is saved in list
+    x = 0                                                   # saves if the while loop shall be breaked
+    newword = input("Fremdwort: ")                          # New technical term is asked
+    term.append(newword)                                    # New technical term is saved in  list
+    newdef = input("Deutsche Uebersetzung: ")               # New translation is asked
+    definition.append(newdef)                               # New translation is saved in list
     while x == 0:
-        continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")
-        if continuing == "Y":
-            x = 1
+        continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")    # asks if another word shall be added
+        if continuing == "Y":                               # if the answer is yes, the programm continues by calling the funktion again
+            x = 1                                           # and breaks the while loop by changing x
             vocabset_create(term, definition)
-        elif continuing == "N":
-            x = 1
+        elif continuing == "N":                             # if the answer is no, the while loop is broken by changing x 
+            x = 1                                           # and the query is started by calling the function "query"
             query(term, definition, len(term)-1)
         else:
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
@@ -179,22 +180,19 @@ def query(term, definition, number):
                        
         if modus=="1":
             print("Es wird Deutsch zu Fremdsprach abgefragt! ")
-            #statussafe = query_status_safe(number)                      # creates a list to safe the known german words
-            outputt = definition
-            inputt = term
+            outputt = definition                                        # the german words shall be printed by the program
+            inputt = term                                               # the foreign words shall be written by the user
 
         elif modus=="2":
             print("Es wird Fremdsprache zu Deutsch abgefragt! ")
-            #statussafe = query_status_safe(number)                      # creates a list to safe the known foreign words
-            outputt = term
-            inputt = definition
+            outputt = term                                              # the foreign words shall be printed by the program
+            inputt = definition                                         # the german words shall be written by the user
 
         elif modus=="3":
-            print("Es wird zufaellig abgefragt! ")
-            #random_query(term, definition, number)                      # continues in random_query
+            print("Es wird zufaellig abgefragt! ")                      # continues in random_query
 
         elif modus=="4":
-            vocabset_menu()                                             # returns to choosing the vocabset
+            selection_menu()                                             # returns to choosing the language
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
     continuing = True                                                           # True if the query shall be continued, False if it shall be ended
@@ -245,10 +243,16 @@ def query(term, definition, number):
                 if c == "N":
                     continuing = False
                     selection_menu()                                           # jumps back into the selection menu if N was chosen
-            
-                
 
 
+##########################################################
+### main-function: defines the process of the programm ###
+##########################################################
+def main():
+    selection_menu()                
 
-# "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
-selection_menu()
+
+##############
+### Start: ###
+##############
+main()
