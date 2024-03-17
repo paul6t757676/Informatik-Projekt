@@ -59,8 +59,6 @@ def vocabset_menu(mode):
                 print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Return to Language Menu (4)" + "\n")
             elif mode==4:
                 selection_menu()
-            elif mode < 4:
-                print("Bitte wähle eine Nummer ein, welche verarbeitet werden kann (1 - 4)!")
             chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): "))
             vocabset_storage(mode, chosen_program)
         except:
