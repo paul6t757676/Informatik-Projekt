@@ -45,7 +45,7 @@ def selection_menu():
                 selection_menu()
 
 
-         
+
 #############################################################
 ### vocab-set storage: All the vocab sets are stored here ###
 #############################################################
@@ -115,6 +115,7 @@ def vocabset_storage(language):
         except:
             print("Diese Eingabe kann leider nicht verarbeitet werden! ")
 
+
 #######################################################################################
 ### empty_lists: initializes two empty lists to save the own vocab list of the user ###
 #######################################################################################
@@ -141,18 +142,18 @@ def query_status_safe(number):
 ### vocabset_create: an own vocab list can be created here ###
 ##############################################################
 def vocabset_create(term, definition):
-    x = 0
-    newword = input("Fremdwort: ")        # New technical term is asked
-    term.append(newword)                    # New technical term is saved in  list
-    newdef = input("Deutsche Uebersetzung: ")         # New translation is asked
-    definition.append(newdef)               # New translation is saved in list
+    x = 0                                                   # saves if the while loop shall be breaked
+    newword = input("Fremdwort: ")                          # New technical term is asked
+    term.append(newword)                                    # New technical term is saved in  list
+    newdef = input("Deutsche Uebersetzung: ")               # New translation is asked
+    definition.append(newdef)                               # New translation is saved in list
     while x == 0:
-        continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")
-        if continuing == "Y":
-            x = 1
+        continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")    # asks if another word shall be added
+        if continuing == "Y":                               # if the answer is yes, the programm continues by calling the funktion again
+            x = 1                                           # and breaks the while loop by changing x
             vocabset_create(term, definition)
-        elif continuing == "N":
-            x = 1
+        elif continuing == "N":                             # if the answer is no, the while loop is broken by changing x 
+            x = 1                                           # and the query is started by calling the function "query"
             query(term, definition, len(term)-1)
         else:
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
@@ -165,29 +166,26 @@ def vocabset_create(term, definition):
 #######################################################################
 def query(term, definition, number):
     print("\n-----------------------\nWelchen Modus moechten Sie waehlen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n \
-              (3) Einen Zufalls-Modus\n-----------------------\nDruecken Sie (4) um zu der Themenwahl zurueckzukehren " )
+              (3) Einen Zufalls-Modus\n-----------------------\nDruecken Sie (4) um zu der Sprachauswahl zurueckzukehren " )
     modus = input("Geben Sie die Zahl des Modus ein, welchen sie auswaehlen moechten: ")          # the mode of the query can be chosen
 
     try:
                        
         if modus=="1":
             print("Es wird Deutsch zu Fremdsprach abgefragt! ")
-            #statussafe = query_status_safe(number)                      # creates a list to safe the known german words
-            outputt = definition
-            inputt = term
+            outputt = definition                                        # the german words shall be printed by the program
+            inputt = term                                               # the foreign words shall be written by the user
 
         elif modus=="2":
             print("Es wird Fremdsprache zu Deutsch abgefragt! ")
-            #statussafe = query_status_safe(number)                      # creates a list to safe the known foreign words
-            outputt = term
-            inputt = definition
+            outputt = term                                              # the foreign words shall be printed by the program
+            inputt = definition                                         # the german words shall be written by the user
 
         elif modus=="3":
-            print("Es wird zufaellig abgefragt! ")
-            #random_query(term, definition, number)                      # continues in random_query
+            print("Es wird zufaellig abgefragt! ")                      # continues in random_query
 
         elif modus=="4":
-            vocabset_menu()                                             # returns to choosing the vocabset
+            selection_menu()                                             # returns to choosing the language
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
     continuing = True                                                           # True if the query shall be continued, False if it shall be ended
@@ -236,10 +234,16 @@ def query(term, definition, number):
                 if c == "N":
                     continuing = False
                     selection_menu()                                           # jumps back into the selection menu if N was chosen
-            
-                
 
 
+##########################################################
+### main-function: defines the process of the programm ###
+##########################################################
+def main():
+    selection_menu()                
 
-# "main-Funktion": Ablaufplan des Programms mit den Funktionen in der richtigen Reihenfolge
-selection_menu()
+
+##############
+### Start: ###
+##############
+main()
