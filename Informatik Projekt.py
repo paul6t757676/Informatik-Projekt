@@ -155,7 +155,7 @@ def vocabset_create(term, definition):
     newdef = input("Deutsche Uebersetzung: ")               # New translation is asked
     definition.append(newdef)                               # New translation is saved in list
     while x == 0:
-        continuing = input("Moechtest du ein weiteres Wort hinzufuegen? (Y/N) ")    # asks if another word shall be added
+        continuing = input("Moechten Sie ein weiteres Wort hinzufuegen? (Y/N) ")    # asks if another word shall be added
         if continuing == "Y":                               # if the answer is yes, the programm continues by calling the funktion again
             x = 1                                           # and breaks the while loop by changing x
             vocabset_create(term, definition)
@@ -198,7 +198,7 @@ def query(term, definition, number):
     continuing = True                                                   # True if the query shall be continued, False if it shall be ended
     counter = 0                                                         # counts how many words have been translated correctly
     statussafe = query_status_safe(number)                              # creates a list to safe if a word has been translated correctly
-    
+    score = 0                                                           # creates score to save the earned points
     while continuing == True:
         if modus == "3":
             random_direction = random.randint(0, 1)                         # creates a random number to decide which direction is asked
@@ -216,12 +216,16 @@ def query(term, definition, number):
             if translation == inputt[vocabnumber]:                                     # checks if the answer is right
                 statussafe[vocabnumber] = True                                       # notices the vocab as right translated
                 print("Richtig!")
+                score += 100                                                # increases the score with 100
+                print("Sie haben 100 Punkte erhalten!\nIhr neuer Score beträgt: ", score)
                 counter += 1                                                # updates the counter of right answers
             else:
                 print("\nDie Antwort war leider falsch! Die korrekte Antwort wäre gewesen: ",inputt[vocabnumber])
+                score -= 50                                                # decreases the score with 100
+                print("Sie haben 50 Punkte verloren!\nIhr neuer Score beträgt: ", score)
             if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
                 continuing = False
-                print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!")
+                print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!\nIhr Endscore beträgt: ", score)
                 while True:
                     try:
                         menu = input("Was möchten Sie als naechstes tun?\n(1) Das Vokabelset wiederholen\n\
