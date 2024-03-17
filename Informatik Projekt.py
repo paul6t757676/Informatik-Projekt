@@ -18,12 +18,13 @@ import random       ### imported random library to generate random numbers for t
 import sys          ### imported sys library to stop the programm
 def selection_menu():
     while True:
-        print("Welcome to our vocab-trainer. Below you find a list of different languages and other options to select." + "\n" + "Just enter the number of the mode you'd like to train and follow the instructions.")
+        print("Wilkommen zu unserem Vokabel-Trainer. Unten finden Sie eine Liste mit verschiedenen Sprachen und weiteren Optionen, zwischen denen Sie wählen können.")
+        print("Geben Sie einfach die Nummer des Modus ein, den Sie auswählen wollen und folgen Sie hiernach den Anweisungen des Programmes.")
         print("\nMenu:")
-        print("(1) English" + "\n" + "(2) French" + "\n" + "(3) Spanish" + "\n" + "(4) Create your own vocab-list" + "\n" + "(5) Help" + "\n")    
+        print("(1) Englisch" + "\n" + "(2) Französisch" + "\n" + "(3) Spanisch" + "\n" + "(4) Erstelle deine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n")    
                            #print options
         try:
-            mode = int(input("To select a Language or to create your own vocab-list, enter a number(1 - 4). Enter '5' to get help: "))  
+            mode = int(input("Um eine Sprache auszuwählen, oder um Ihre eigene Liste zu erstellen, geben Sie eine Nummer (1 - 4) ein. Geben Sie '5' ein, um Hilfe zu bekommen: "))  
             os.system('cls' if os.name == 'nt' else 'clear')                                         #select chosen option 
             help = "\nHelp needed? This program is a vocabulary-trainer. It can support you improving your language skills by asking you for the correct\
                 translation of different vocabs. There are different languages and modes you can select. You can either improve your english, spanish,\
@@ -36,22 +37,16 @@ def selection_menu():
             elif mode == 4:
                 empty_lists()
             else:
-                print("There are currently only 4 language-modes available. Please choose another option!")
+                print("Momentan gibt es nur 4 Modi, zwischen denen gewählt werden kann. Bitte geben Sie eine andere Option ein!")
                 selection_menu()
         except:
-                print("Invalid input! Please choose a correct Number for the Programm\n")
+                print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n")
                 selection_menu()
 
 #####################################################################
 ### vocabset_menu: one of the available vocab lists can be chosen ###
 #####################################################################
 def vocabset_menu(mode):
-    language = ["English", "French", "Spanish", "Create your own list:", help] 
-    menu2 = print("Language chosen: " , (language[mode-1]),"\n-----------------------\nPossible Topics:\n")
-    english = ["Kitchen: In the Kitchen (1)", "Nature: Out in the nature (2)", "Engineering: Mechanical English (3)", "Return to Language Menu (4)"]
-    french = ["Kitchen: Dans la cuisine (1)", "Nature: Dans la nature (2)", "Engineering: Francais mécanique (3)", "Return to Language Menu (4)"]
-    spanish = ["Kitchen: En la cocina (1)", "Nature: En la naturaleza (2)", "Engineering: Espanol mecánico (3)", "Return to Language Menu (4)"]
-    modetranslation = [english, french, spanish]
 
     while True:
         try:
@@ -67,7 +62,7 @@ def vocabset_menu(mode):
             chosen_program = int(input("-----------------------\nChoose one specific vocab-unit you'd like to train (1 - 4): "))
             vocabset_storage(mode, chosen_program)
         except:
-            print("Diese Eingabe kann leider nicht verarbeitet werden! ")
+            print("Diese Eingabe kann leider nicht verarbeitet werden!\n ")
 
     
        
