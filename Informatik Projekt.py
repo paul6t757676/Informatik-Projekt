@@ -121,8 +121,8 @@ def vocabset_storage(language):
 #######################################################################################
 def empty_lists():
     term = []
-    definition = []
-    vocabset_create(term, definition)
+    definition = []                             # creates two empty lists
+    vocabset_create(term, definition)           # goes to vocabset create with the empty lists
 
 
 #################################################################################################
@@ -130,11 +130,11 @@ def empty_lists():
 #################################################################################################
 def query_status_safe(number):
     x = 0
-    statussafe = []
-    while x <= number:
-        statussafe.append(False)
-        x += 1
-    return statussafe
+    statussafe = []                     # creates an empty list
+    while x <= number:                  # checks if the list is as long as the list of vocabs
+        statussafe.append(False)        # if not, it adds another subject to the list
+        x += 1                          
+    return statussafe                   # returns the finished list
 
 
 
@@ -182,15 +182,15 @@ def query(term, definition, number):
             inputt = definition                                         # the german words shall be written by the user
 
         elif modus=="3":
-            print("Es wird zufaellig abgefragt! ")                      # continues in random_query
+            print("Es wird zufaellig abgefragt! ")                      # continues by choosing the asked language randomly
 
         elif modus=="4":
-            selection_menu()                                             # returns to choosing the language
+            selection_menu()                                            # returns to choosing the language
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
-    continuing = True                                                           # True if the query shall be continued, False if it shall be ended
-    counter = 0
-    statussafe = query_status_safe(number)
+    continuing = True                                                   # True if the query shall be continued, False if it shall be ended
+    counter = 0                                                         # counts how many words have been translated correctly
+    statussafe = query_status_safe(number)                              # creates a list to safe if a word has been translated correctly
     
     while continuing == True:
         if modus == "3":
@@ -203,29 +203,30 @@ def query(term, definition, number):
                 inputt = term
         vocabnumber = random.randint(0, number)
         word = outputt[vocabnumber]
-        if statussafe[vocabnumber] == False:                                          # checks if the vocab has already been translated correctly
+        if statussafe[vocabnumber] == False:                                # checks if the vocab has already been translated correctly
             print("Bitte geben Sie die Übersetzung von ", word, " ein: ")
-            translation = input()
-            if translation == inputt[vocabnumber]:                                     # checks if the answer is right
-                statussafe[vocabnumber] = True                                       # notices the vocab as right translated
+            translation = input()                                           # the user can write the translation of the asked word
+            if translation == inputt[vocabnumber]:                          # checks if the answer is right
+                statussafe[vocabnumber] = True                              # notices the vocab as right translated
                 print("Richtig!")
-                counter += 1  
+                counter += 1                                                # updates the counter of right answers
             else:
                 print("Die Antwort war leider falsch! Die korrekte Antwort wäre gewesen: ",inputt[vocabnumber])
-            if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
+            if counter == number + 1:                                       # stops while-loop if all vocabs were translated correctly
                 continuing = False
                 print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!")
                 while True:
                     try:
-                        menu = input("Was möchten Sie als naechstes tun?\n(1) Das Vokabelset wiederholen\n(2) Zurueck zum Hauptmenue\n(3) Programm beenden\n")
+                        menu = input("Was möchten Sie als naechstes tun?\n(1) Das Vokabelset wiederholen\n\
+                        (2) Zurueck zum Hauptmenue\n(3) Programm beenden\n")    # asks what the user wants to do now
                         match menu:
                             case "1":
-                                query(term, definition, number)
+                                query(term, definition, number)             # restarts the query with the same words
                             case "2":
-                                selection_menu()
+                                selection_menu()                            # returns to the selection menu
                             case "3":
                                 print("Programm wird beendet")
-                                print(quit())
+                                print(quit())                               # exits the programm
                     except:
                         print("Diese Eingabe kann nicht verarbeitet werden!")
 
