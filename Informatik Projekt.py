@@ -261,14 +261,13 @@ def query(term, definition, number):
                         menu = input("-----------------------\nWas möchten Sie als nächstes tun?\n\n(1) Das Vokabelset wiederholen\n\
 (2) Zurueck zum Hauptmenü\n(3) Programm beenden\n")    # asks what the user wants to do now
                         os.system('cls' if os.name == 'nt' else 'clear')
-                        match menu:
-                            case "1":
-                                query(term, definition, number)             # restarts the query with the same words
-                            case "2":
-                                selection_menu()                            # returns to the selection menu
-                            case "3":
-                                print("Programm wird beendet")
-                                return
+                        if menu == "1":
+                            query(term, definition, number)             # restarts the query with the same words
+                        elif menu == "2":
+                            selection_menu()                            # returns to the selection menu
+                        elif menu == "3":
+                            print("Programm wird beendet")
+                            return
                     except:
                         print("Diese Eingabe kann nicht verarbeitet werden!")
 
