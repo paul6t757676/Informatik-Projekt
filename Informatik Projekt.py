@@ -40,6 +40,7 @@ Sollten Sie eine Vokabel falsch übersetzt haben, macht Sie das Programm hierauf
             if mode == 5:                                                                                                       # prints a help text
                 print(help)
                 selection_menu()
+                return
             elif mode<4 and mode > 0:
                 vocabset_storage(mode)                                                                                          # calls vocabset_storage
                 return
@@ -52,13 +53,16 @@ Sollten Sie eine Vokabel falsch übersetzt haben, macht Sie das Programm hierauf
             elif mode < 1:
                 print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n-----------------------\n")
                 selection_menu()
+                return
             else:
                 print("Momentan gibt es nur 4 Modi, zwischen denen gewählt werden kann. Bitte geben Sie eine andere Option ein!\n-----------------------\n")
                 selection_menu()
+                return
         except:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n-----------------------\n")
                 selection_menu()
+                return
 
 
 
@@ -107,6 +111,7 @@ def vocabset_storage(language):
                       "(3) Engineering: Espanol mecánico" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
             elif language==4:
                 selection_menu()                                                                                            # returns to selection menu
+                return
             set = int(input("-----------------------\nWählen Sie aus obiger Liste ein spezifisches Thema aus, \
 welches Sie lernen wollen, oder kehren Sie zum Sprach-Menü zurück (1 - 4): "))                                              # asks which list was chosen
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -142,6 +147,7 @@ welches Sie lernen wollen, oder kehren Sie zum Sprach-Menü zurück (1 - 4): "))
                     return
             elif set == 4:
                 selection_menu()                                                                                            # returns to selection menu
+                return
             elif set >4 or set < 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Dieser Modus existiert leider nicht!\n-----------------------\n ")
@@ -222,6 +228,7 @@ def query(term, definition, number):
 
         elif modus=="4":
             selection_menu()                                            # returns to choosing the language
+            return
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
     continuing = True                                                   # True if the query shall be continued, False if it shall be ended
@@ -265,6 +272,7 @@ def query(term, definition, number):
                             query(term, definition, number)             # restarts the query with the same words
                         elif menu == "2":
                             selection_menu()                            # returns to the selection menu
+                            return
                         elif menu == "3":
                             print("Programm wird beendet")
                             return
@@ -277,6 +285,7 @@ def query(term, definition, number):
                 if c == "N":
                     continuing = False
                     selection_menu()                                        # jumps back into the selection menu if N was chosen
+                    return
                
 
 
