@@ -35,12 +35,15 @@ Sollten Sie ein Mal eine Vokabel falsch übersetzt haben, macht sie das Programm
             if mode == 5:
                 print(help)
                 selection_menu()
-            elif mode<4:
+            elif mode<4 and mode > 0:
                 vocabset_storage(mode)
                 return
             elif mode == 4:
                 empty_lists()
                 return
+            elif mode < 1:
+                print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n-----------------------\n")
+                selection_menu()
             else:
                 print("Momentan gibt es nur 4 Modi, zwischen denen gewählt werden kann. Bitte geben Sie eine andere Option ein!\n-----------------------\n")
                 selection_menu()
@@ -127,7 +130,7 @@ def vocabset_storage(language):
                     return
             elif set == 4:
                 selection_menu()
-            elif set >4:
+            elif set >4 or set < 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Dieser Modus existiert leider nicht!\n-----------------------\n ")
         except:
@@ -253,7 +256,6 @@ def query(term, definition, number):
                             case "3":
                                 print("Programm wird beendet")
                                 return
-                                print(quit())                               # exits the programm
                     except:
                         print("Diese Eingabe kann nicht verarbeitet werden!")
 
