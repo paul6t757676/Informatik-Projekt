@@ -20,18 +20,18 @@ import sys          ### imported sys library to stop the programm
 os.system('cls' if os.name == 'nt' else 'clear')
 def selection_menu():
     while True:
-        print("Wilkommen zu unserem Vokabel-Trainer. Unten finden Sie eine Liste mit verschiedenen Sprachen und weiteren Optionen, zwischen denen Sie wählen können.\n\
-Geben Sie einfach die Nummer des Modus ein, den Sie auswählen wollen und folgen Sie hiernach den Anweisungen des Programmes.")
+        print("Wilkommen zu unserem Vokabel-Trainer. Hier finden Sie eine Liste mit verschiedenen Sprachen und weiteren Optionen, zwischen welchen Sie wählen können.\n\
+Geben Sie die Nummer des Modus ein, den Sie auswählen wollen und folgen Sie den Anweisungen des Programmes.")
         print("\nMenu:")
-        print("(1) Englisch" + "\n" + "(2) Französisch" + "\n" + "(3) Spanisch" + "\n" + "(4) Erstelle deine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n")    
+        print("(1) Englisch" + "\n" + "(2) Französisch" + "\n" + "(3) Spanisch" + "\n" + "(4) Erstellen Sie eine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n")    
                            #print options
         try:
-            mode = int(input("Um eine Sprache auszuwählen, oder um Ihre eigene Liste zu erstellen, geben Sie eine Nummer (1 - 4) ein. Geben Sie '5' ein, um Hilfe zu bekommen: "))  
+            mode = int(input("Geben Sie einen Modus ein, welchen Sie auswählen möchten (1-5): "))  
             os.system('cls' if os.name == 'nt' else 'clear')                                         #select chosen option 
-            help = "\nSie brauchen Hilfe? Bei diesem Programm handelt es sich um einen Vokabeltrainer. Er kann Sie dabei unterstützen, Ihre Sprachkenntnisse zu trainieren und zu erweitern, indem es Sie verschiedene Vokabeln abfragt.\
-Sie können in den verschiedenen Menüs, verschiedene Modi auswählen. Bei diesen Modi handelt es sich zum einen um unterschiedliche Sprachen und zum andern um einen zusätzlichen Modus, bei welchem Sie ihre eigenen Vokabel-Listen zum lernen erstellen können.\
-Die verfügbaren Sprachen sind in der aktuellsten Version Englisch, Französisch und Spanisch. Nach der Sprachauswahl, können Sie noch einmal zwischen unterschiedlichen Vokabel-Paketen wählen Der Rest des Programmes erklärt sich dann von alleine!.\
-Sollten Sie ein Mal eine Vokabel falsch übersetzt haben, macht sie das Programm hierauf ebenfalls aufmerksam.\nViel Spaß beim lernen!\n-----------------------"
+            help = "\nSie brauchen Hilfe? Bei diesem Programm handelt es sich um einen Vokabeltrainer. Er kann Sie dabei unterstützen, Ihre Sprachkenntnisse zu trainieren und zu erweitern, indem er Sie verschiedene Vokabeln abfragt.\
+Sie können in den verschiedenen Menüs, verschiedene Modi auswählen. Bei diesen Modi handelt es sich zum einen um unterschiedliche Sprachen und zum andern um einen zusätzlichen Modus, bei welchem Sie ihre eigenen Vokabel-Listen zum Lernen erstellen können.\
+Die verfügbaren Sprachen sind in der aktuellsten Version Englisch, Französisch und Spanisch. Nach der Sprachauswahl, können Sie noch einmal zwischen unterschiedlichen Vokabel-Paketen wählen. \
+Sollten Sie eine Vokabel falsch übersetzt haben, macht Sie das Programm hierauf aufmerksam.\nViel Spaß beim Lernen!\n-----------------------"
             if mode == 5:
                 print(help)
                 selection_menu()
@@ -85,12 +85,12 @@ def vocabset_storage(language):
     while True:
         try:
             if language == 1:
-                print("(1) Kitchen: In the Kitchen" + "\n" + "(2) Nature: Out in the nature" + "\n" + "(3) Engineering: Mechanical English" + "\n" + "(4) Return to Language Menu" + "\n")
+                print("(1) Kitchen: In the Kitchen" + "\n" + "(2) Nature: Out in the nature" + "\n" + "(3) Engineering: Mechanical English" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
                 #vocabset_storage(mode, chosen_program)
             elif language==2:
-                print("(1) Kitchen: Dans la cuisine" + "\n" + "(2) Nature: Dans la nature" + "\n" + "(3) Engineering: Francais mécanique" + "\n" + "(4) Return to Language Menu" + "\n")
+                print("(1) Kitchen: Dans la cuisine" + "\n" + "(2) Nature: Dans la nature" + "\n" + "(3) Engineering: Francais mécanique" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
             elif language==3:
-                print("Kitchen: En la cocina (1)" + "\n" + "Nature: En la naturaleza (2)" + "\n" + "Engineering: Espanol mecánico (3)" + "\n" + "Return to Language Menu (4)" + "\n")
+                print("(1) Kitchen: En la cocina" + "\n" + "(2) Nature: En la naturaleza" + "\n" + "(3) Engineering: Espanol mecánico" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
             elif language==4:
                 selection_menu()
             set = int(input("-----------------------\nWählen Sie aus obiger Liste ein spezifisches Thema aus, welches Sie lernen wollen, oder kehren Sie zum Sprach-Menü zurück (1 - 4): "))
@@ -164,15 +164,16 @@ def vocabset_create(term, definition):
     x = 0                                                   # saves if the while loop shall be breaked
     newword = input("Fremdwort: ")                          # New technical term is asked
     term.append(newword)                                    # New technical term is saved in  list
-    newdef = input("Deutsche Uebersetzung: ")               # New translation is asked
+    newdef = input("Deutsche Übersetzung: ")               # New translation is asked
     definition.append(newdef)                               # New translation is saved in list
     while x == 0:
-        continuing = input("Moechten Sie ein weiteres Wort hinzufuegen? (Y/N) ")    # asks if another word shall be added
+        continuing = input("Möchten Sie ein weiteres Wort hinzufügen? (Y/N) ")    # asks if another word shall be added
         if continuing == "Y":                               # if the answer is yes, the programm continues by calling the funktion again
             x = 1                                           # and breaks the while loop by changing x
             vocabset_create(term, definition)
         elif continuing == "N":                             # if the answer is no, the while loop is broken by changing x 
             x = 1                                           # and the query is started by calling the function "query"
+            os.system('cls' if os.name == 'nt' else 'clear')
             query(term, definition, len(term)-1)
             return
         else:
@@ -185,14 +186,14 @@ def vocabset_create(term, definition):
 ### query: queries the chosen vocabs with different modes available ###
 #######################################################################
 def query(term, definition, number):
-    print("Welchen Modus moechten Sie waehlen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n\
-(3) Einen Zufalls-Modus\n-----------------------\nDruecken Sie (4) um zu der Themenwahl zurueckzukehren " )
-    modus = input("\nGeben Sie die Zahl des Modus ein, welchen sie auswaehlen moechten: ")          # the mode of the query can be chosen
+    print("Welchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n\
+(3) Einen Zufalls-Modus\n-----------------------\nDrücken Sie (4) um zu der Themenwahl zurückzukehren " )
+    modus = input("\nGeben Sie die Zahl des Modus ein, welchen sie auswählen möchten: ")          # the mode of the query can be chosen
     os.system('cls' if os.name == 'nt' else 'clear')
     try:
                        
         if modus=="1":
-            print("Es wird Deutsch zu Fremdsprach abgefragt! ")
+            print("Es wird Deutsch zu Fremdsprache abgefragt! ")
             outputt = definition                                        # the german words shall be printed by the program
             inputt = term                                               # the foreign words shall be written by the user
 
@@ -202,7 +203,7 @@ def query(term, definition, number):
             inputt = definition                                         # the german words shall be written by the user
 
         elif modus=="3":
-            print("Es wird zufaellig abgefragt! ")                      # continues by choosing the asked language randomly
+            print("Es wird zufällig abgefragt! ")                      # continues by choosing the asked language randomly
 
         elif modus=="4":
             selection_menu()                                            # returns to choosing the language
@@ -239,11 +240,11 @@ def query(term, definition, number):
             if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
                 continuing = False
                 os.system('cls' if os.name == 'nt' else 'clear')
-                print("Sie haben alle Vokabeln richtig uebersetzt!\nGlueckwunsch!\n-----------------------\nIhr Endscore beträgt: ", score)
+                print("Sie haben alle Vokabeln richtig übersetzt!\nGlückwunsch!\n-----------------------\nIhr Endscore beträgt: ", score)
                 while True:
                     try:
-                        menu = input("-----------------------\nWas möchten Sie als naechstes tun?\n\n(1) Das Vokabelset wiederholen\n\
-(2) Zurueck zum Hauptmenue\n(3) Programm beenden\n")    # asks what the user wants to do now
+                        menu = input("-----------------------\nWas möchten Sie als nächstes tun?\n\n(1) Das Vokabelset wiederholen\n\
+(2) Zurueck zum Hauptmenü\n(3) Programm beenden\n")    # asks what the user wants to do now
                         os.system('cls' if os.name == 'nt' else 'clear')
                         match menu:
                             case "1":
@@ -258,7 +259,7 @@ def query(term, definition, number):
                         print("Diese Eingabe kann nicht verarbeitet werden!")
 
             else: 
-                c = input("-----------------------\nDruecken Sie Enter, um fortzufahren, oder N, um ins Hauptmenue zurueckzukehren!")
+                c = input("-----------------------\nDrücken Sie (Enter) um fortzufahren, oder (N) um ins Hauptmenü zurückzukehren!")
                 os.system('cls' if os.name == 'nt' else 'clear')
                 if c == "N":
                     continuing = False
