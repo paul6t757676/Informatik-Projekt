@@ -37,8 +37,10 @@ Sollten Sie ein Mal eine Vokabel falsch übersetzt haben, macht sie das Programm
                 selection_menu()
             elif mode<4:
                 vocabset_storage(mode)
+                return
             elif mode == 4:
                 empty_lists()
+                return
             else:
                 print("Momentan gibt es nur 4 Modi, zwischen denen gewählt werden kann. Bitte geben Sie eine andere Option ein!\n-----------------------\n")
                 selection_menu()
@@ -96,24 +98,33 @@ def vocabset_storage(language):
             if set == 1:
                 if language == 1:
                     query(kitchen, kueche, 14)
+                    return
                 elif language == 2:
                     query(cuisine, kueche, 14)
+                    return
                 else:
                     query(cocina, kueche, 14)
+                    return
             elif set == 2: 
                 if language == 1:
                     query(nature_en, natur, 14)
+                    return
                 elif language == 2:
                     query(nature_fr, natur, 14)
+                    return
                 else:
                     query(naturaleza, natur, 14)
+                    return
             elif set == 3: 
                 if language == 1:
                     query(engineering, mechanisch, 14)
+                    return
                 elif language == 2:
                     query(mecanique, mechanisch, 14)
+                    return
                 else:
                     query(mecanico, mechanisch, 14)
+                    return
             elif set == 4:
                 selection_menu()
             elif set >4:
@@ -130,6 +141,7 @@ def empty_lists():
     term = []
     definition = []                             # creates two empty lists
     vocabset_create(term, definition)           # goes to vocabset create with the empty lists
+    return
 
 
 #################################################################################################
@@ -162,6 +174,7 @@ def vocabset_create(term, definition):
         elif continuing == "N":                             # if the answer is no, the while loop is broken by changing x 
             x = 1                                           # and the query is started by calling the function "query"
             query(term, definition, len(term)-1)
+            return
         else:
             print("Diese Eingabe kann leider nicht verarbeitet werden.")
 
@@ -239,6 +252,7 @@ def query(term, definition, number):
                                 selection_menu()                            # returns to the selection menu
                             case "3":
                                 print("Programm wird beendet")
+                                return
                                 print(quit())                               # exits the programm
                     except:
                         print("Diese Eingabe kann nicht verarbeitet werden!")
@@ -255,10 +269,12 @@ def query(term, definition, number):
 ### main-function: defines the process of the programm ###
 ##########################################################
 def main():
-    selection_menu()                
+    selection_menu()
+    return                
 
 
 ##############
 ### Start: ###
 ##############
 main()
+sys.exit()
