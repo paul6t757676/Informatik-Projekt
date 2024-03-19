@@ -25,10 +25,10 @@ und weiteren Optionen, zwischen welchen Sie wählen können.\n\
 Geben Sie die Nummer des Modus ein, den Sie auswählen wollen und folgen Sie den Anweisungen des Programmes.")
         print("\nMenu:")
         print("(1) Englisch" + "\n" + "(2) Französisch" + "\n" + "(3) Spanisch" + "\n" + \
-"(4) Erstellen Sie eine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n")    
+"(4) Erstellen Sie eine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n(6) Programm beenden\n")    
                            #print options
         try:
-            mode = int(input("Geben Sie einen Modus ein, welchen Sie auswählen möchten (1-5): "))  
+            mode = int(input("Geben Sie einen Modus ein, welchen Sie auswählen möchten (1-6): "))  
             os.system('cls' if os.name == 'nt' else 'clear')                                          
             help = "\nSie brauchen Hilfe? Bei diesem Programm handelt es sich um einen Vokabeltrainer.\nEr kann Sie \
 dabei unterstützen, Ihre Sprachkenntnisse zu trainieren und zu erweitern, indem er Sie verschiedene Vokabeln abfrägt.\n\
@@ -45,6 +45,9 @@ Sollten Sie eine Vokabel falsch übersetzt haben, macht Sie das Programm hierauf
                 return
             elif mode == 4:                                                                                                     # calls empty_lists to create an own list
                 empty_lists()
+                return
+            elif mode == 6:
+                print("Programm wird beendet!")
                 return
             elif mode < 1:
                 print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n-----------------------\n")
@@ -199,7 +202,7 @@ def vocabset_create(term, definition):
 #######################################################################
 def query(term, definition, number):
     print("Welchen Modus möchten Sie wählen?\n(1) Deutsch zu Fremdsprache \n(2) Fremdsprache zu Deutsch \n\
-(3) Einen Zufalls-Modus\n-----------------------\nDrücken Sie (4) um zu der Themenwahl zurückzukehren " )
+(3) Einen Zufalls-Modus\n-----------------------\nDrücken Sie (4), um zur Sprachauswahl zurückzukehren " )
     modus = input("\nGeben Sie die Zahl des Modus ein, welchen sie auswählen möchten: ")          # the mode of the query can be chosen
     os.system('cls' if os.name == 'nt' else 'clear')
     try:
