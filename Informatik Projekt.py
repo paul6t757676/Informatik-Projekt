@@ -20,25 +20,30 @@ import sys          ### imported sys library to stop the programm
 os.system('cls' if os.name == 'nt' else 'clear')
 def selection_menu():
     while True:
-        print("Wilkommen zu unserem Vokabel-Trainer. Hier finden Sie eine Liste mit verschiedenen Sprachen und weiteren Optionen, zwischen welchen Sie wählen können.\n\
+        print("Wilkommen zu unserem Vokabel-Trainer. Hier finden Sie eine Liste mit verschiedenen Sprachen \
+und weiteren Optionen, zwischen welchen Sie wählen können.\n\
 Geben Sie die Nummer des Modus ein, den Sie auswählen wollen und folgen Sie den Anweisungen des Programmes.")
         print("\nMenu:")
-        print("(1) Englisch" + "\n" + "(2) Französisch" + "\n" + "(3) Spanisch" + "\n" + "(4) Erstellen Sie eine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n")    
+        print("(1) Englisch" + "\n" + "(2) Französisch" + "\n" + "(3) Spanisch" + "\n" + \
+"(4) Erstellen Sie eine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n")    
                            #print options
         try:
             mode = int(input("Geben Sie einen Modus ein, welchen Sie auswählen möchten (1-5): "))  
-            os.system('cls' if os.name == 'nt' else 'clear')                                         #select chosen option 
-            help = "\nSie brauchen Hilfe? Bei diesem Programm handelt es sich um einen Vokabeltrainer. Er kann Sie dabei unterstützen, Ihre Sprachkenntnisse zu trainieren und zu erweitern, indem er Sie verschiedene Vokabeln abfragt.\
-Sie können in den verschiedenen Menüs, verschiedene Modi auswählen. Bei diesen Modi handelt es sich zum einen um unterschiedliche Sprachen und zum andern um einen zusätzlichen Modus, bei welchem Sie ihre eigenen Vokabel-Listen zum Lernen erstellen können.\
-Die verfügbaren Sprachen sind in der aktuellsten Version Englisch, Französisch und Spanisch. Nach der Sprachauswahl, können Sie noch einmal zwischen unterschiedlichen Vokabel-Paketen wählen. \
+            os.system('cls' if os.name == 'nt' else 'clear')                                          
+            help = "\nSie brauchen Hilfe? Bei diesem Programm handelt es sich um einen Vokabeltrainer.\nEr kann Sie \
+dabei unterstützen, Ihre Sprachkenntnisse zu trainieren und zu erweitern, indem er Sie verschiedene Vokabeln abfrägt.\n\
+Sie können in den verschiedenen Menüs, verschiedene Modi auswählen. Bei diesen Modi handelt es sich zum einen \num \
+unterschiedliche Sprachen und zum andern um einen zusätzlichen Modus, bei welchem Sie ihre eigenen Vokabel-Listen zum Lernen erstellen können. \n\
+Die verfügbaren Sprachen sind in der aktuellsten Version Englisch, Französisch und Spanisch. \nNach der Sprachauswahl, \
+können Sie noch einmal zwischen unterschiedlichen Vokabel-Paketen wählen. \n\
 Sollten Sie eine Vokabel falsch übersetzt haben, macht Sie das Programm hierauf aufmerksam.\nViel Spaß beim Lernen!\n-----------------------"
-            if mode == 5:
+            if mode == 5:                                                                                                       # prints a help text
                 print(help)
                 selection_menu()
             elif mode<4 and mode > 0:
-                vocabset_storage(mode)
+                vocabset_storage(mode)                                                                                          # calls vocabset_storage
                 return
-            elif mode == 4:
+            elif mode == 4:                                                                                                     # calls empty_lists to create an own list
                 empty_lists()
                 return
             elif mode < 1:
@@ -87,18 +92,22 @@ def vocabset_storage(language):
                 "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]    # (List) spanish translation for "mechanisch"
     while True:
         try:
-            if language == 1:
-                print("(1) Kitchen: In the Kitchen" + "\n" + "(2) Nature: Out in the nature" + "\n" + "(3) Engineering: Mechanical English" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
+            if language == 1:                                                                             # prints the fitting vocab list options based on the chosen language
+                print("(1) Kitchen: In the Kitchen" + "\n" + "(2) Nature: Out in the nature" + \
+                      "\n" + "(3) Engineering: Mechanical English" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
                 #vocabset_storage(mode, chosen_program)
             elif language==2:
-                print("(1) Kitchen: Dans la cuisine" + "\n" + "(2) Nature: Dans la nature" + "\n" + "(3) Engineering: Francais mécanique" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
+                print("(1) Kitchen: Dans la cuisine" + "\n" + "(2) Nature: Dans la nature" + "\n" + \
+                      "(3) Engineering: Francais mécanique" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
             elif language==3:
-                print("(1) Kitchen: En la cocina" + "\n" + "(2) Nature: En la naturaleza" + "\n" + "(3) Engineering: Espanol mecánico" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
+                print("(1) Kitchen: En la cocina" + "\n" + "(2) Nature: En la naturaleza" + "\n" + \
+                      "(3) Engineering: Espanol mecánico" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
             elif language==4:
-                selection_menu()
-            set = int(input("-----------------------\nWählen Sie aus obiger Liste ein spezifisches Thema aus, welches Sie lernen wollen, oder kehren Sie zum Sprach-Menü zurück (1 - 4): "))
+                selection_menu()                                                                                            # returns to selection menu
+            set = int(input("-----------------------\nWählen Sie aus obiger Liste ein spezifisches Thema aus, \
+welches Sie lernen wollen, oder kehren Sie zum Sprach-Menü zurück (1 - 4): "))                                              # asks which list was chosen
             os.system('cls' if os.name == 'nt' else 'clear')
-            if set == 1:
+            if set == 1:                                                                                                    # calls query with the chosen vocab lists
                 if language == 1:
                     query(kitchen, kueche, 14)
                     return
@@ -129,7 +138,7 @@ def vocabset_storage(language):
                     query(mecanico, mechanisch, 14)
                     return
             elif set == 4:
-                selection_menu()
+                selection_menu()                                                                                            # returns to selection menu
             elif set >4 or set < 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Dieser Modus existiert leider nicht!\n-----------------------\n ")
@@ -265,19 +274,12 @@ def query(term, definition, number):
                 os.system('cls' if os.name == 'nt' else 'clear')
                 if c == "N":
                     continuing = False
-                    selection_menu()                                           # jumps back into the selection menu if N was chosen
-
-
-##########################################################
-### main-function: defines the process of the programm ###
-##########################################################
-def main():
-    selection_menu()
-    return                
+                    selection_menu()                                        # jumps back into the selection menu if N was chosen
+               
 
 
 ##############
 ### Start: ###
 ##############
-main()
-sys.exit()
+selection_menu()
+sys.exit()                                                                  # closes the program by using the sys-library
