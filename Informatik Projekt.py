@@ -23,8 +23,7 @@ und weiteren Optionen, zwischen welchen Sie wählen können.\n\
 Geben Sie die Nummer des Modus ein, den Sie auswählen wollen und folgen Sie den Anweisungen des Programmes.")
         print("\nMenu:")
         print("(1) Englisch" + "\n" + "(2) Französisch" + "\n" + "(3) Spanisch" + "\n" + \
-"(4) Erstellen Sie eine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n(6) Programm beenden\n")    
-                           #print options
+"(4) Erstellen Sie eine eigene Vokabelliste" + "\n" + "(5) Hilfe" + "\n(6) Programm beenden\n")                               #print options
         try:
             mode = int(input("Geben Sie einen Modus ein, welchen Sie auswählen möchten (1-6): "))  
             os.system('cls' if os.name == 'nt' else 'clear')                                          
