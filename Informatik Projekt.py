@@ -15,7 +15,7 @@
 import os           ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
 import random       ### imported random library to generate random numbers for the query
 import sys          ### imported sys library to stop the programm
-os.system('cls' if os.name == 'nt' else 'clear')
+os.system('cls' if os.name == 'nt' else 'clear')                        # this line is used to clear the console
 def selection_menu():
     while True:
         print("Wilkommen zu unserem Vokabel-Trainer. Hier finden Sie eine Liste mit verschiedenen Sprachen \
@@ -50,15 +50,15 @@ Sollten Sie eine Vokabel falsch übersetzt haben, macht Sie das Programm hierauf
                 return
             elif mode < 1:
                 print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n-----------------------\n")
-                selection_menu()
+                selection_menu()                                                                                                #calls selection_menu()
                 return
             else:
                 print("Momentan gibt es nur 4 Modi, zwischen denen gewählt werden kann. Bitte geben Sie eine andere Option ein!\n-----------------------\n")
-                selection_menu()
+                selection_menu()                                                                                                #calls selection_menu()
                 return
         except:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n-----------------------\n")
+                os.system('cls' if os.name == 'nt' else 'clear')                                                                #clears console
+                print("Ungültige Eingabe! Bitte geben Sie einen gültigen Wert ein (1 - 5).\n-----------------------\n")         #calls selection_menu()
                 selection_menu()
                 return
 
@@ -67,20 +67,21 @@ Sollten Sie eine Vokabel falsch übersetzt haben, macht Sie das Programm hierauf
 #############################################################
 ### vocab-set storage: All the vocab sets are stored here ###
 #############################################################
+### german word-lists that will be translated
 def vocabset_storage(language):
     kueche = ["Ofen", "Herd", "Kühlschrank", "Kochtopf", "Toaster", "Messer", "Pfanne", "Glas",\
-              "Löffel", "Gabel", "Teller", "Spülmaschine", "Spüle", "Pfannenwender", "Gewürze"]
+              "Löffel", "Gabel", "Teller", "Spülmaschine", "Spüle", "Pfannenwender", "Gewürze"]                             # (List) german words "kueche"
     natur = ["Baum", "Wiese", "Blume", "Park", "Vogel", "Brunnen", "Teich", "Eichhörnchen",\
-             "Igel", "Pilz", "Regenbogen", "Wolke", "Schnee", "Regen", "Wetter"]
+             "Igel", "Pilz", "Regenbogen", "Wolke", "Schnee", "Regen", "Wetter"]                                            # (List) german words "natur"
     mechanisch = ["Winkel", "Kurzschluss", "Achse", "Eichung", "Leitfähigkeit", "Gegengewicht", "Induktivität",\
-                  "Dichte", "Gleichung", "Reibung", "Erdung", "messen", "Widerstand", "Spannung", "Kapazität"]
-###translations for german category "kueche"
+                  "Dichte", "Gleichung", "Reibung", "Erdung", "messen", "Widerstand", "Spannung", "Kapazität"]              # (List) germann words "mechanisch"
+### translations for german category "kueche"
     kitchen = ["oven", "stove", "refrigerator", "pot", "toaster", "knife", "pan", "glass", "spoon",\
                "fork", "plate", "dishwasher", "sink", "spatula", "spices"]                                                  # (List) english translation for "kueche"
     cuisine = ["four", "poêle", "réfrigérateur", "casserole", "grille-pain", "couteau", "poêle", "verre",\
                "cuillère", "fourchette", "assiette", "lave-vaisselle", "évier", "poêle à frire", "épices"]                  # (List) french translation for "kueche"
     cocina = ["horno", "cocina", "refrigerador", "cazuela", "tostadora", "cuchillo", "sartén", "vidrio",\
-              "cuchara", "tenedor", "plato", "lavavajillas", "espátula", "fregadero", "especia"]                                        # (List) spanish translation for "kueche"
+              "cuchara", "tenedor", "plato", "lavavajillas", "espátula", "fregadero", "especia"]                            # (List) spanish translation for "kueche"
 ### translations for german category "natur"
     nature_en = ["tree", "meadow", "flower", "park", "bird", "well", "pond", "squirrel", "hedgehog",\
                  "mushroom", "rainbow", "cloud", "snow", "rain", "weather"]                                                 # (List) english translation for "natur"
@@ -97,10 +98,9 @@ def vocabset_storage(language):
                 "densidad", "ecuación", "frotamiento", "toma de tierra", "medir", "resistencia", "voltaje", "capacidad"]    # (List) spanish translation for "mechanisch"
     while True:
         try:
-            if language == 1:                                                                             # prints the fitting vocab list options based on the chosen language
+            if language == 1:                                                                                               # prints the fitting vocab list options based on the chosen language
                 print("(1) Kitchen: In the Kitchen" + "\n" + "(2) Nature: Out in the nature" + \
                       "\n" + "(3) Engineering: Mechanical English" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
-                #vocabset_storage(mode, chosen_program)
             elif language==2:
                 print("(1) Kitchen: Dans la cuisine" + "\n" + "(2) Nature: Dans la nature" + "\n" + \
                       "(3) Engineering: Francais mécanique" + "\n" + "(4) Zur Sprachauswahl zurückkehren" + "\n")
@@ -181,10 +181,10 @@ def query_status_safe(number):
 ##############################################################
 def vocabset_create(term, definition):
     x = 0                                                   # saves if the while loop shall be breaked
-    newword = input("Fremdwort: ")                          # New technical term is asked
-    term.append(newword)                                    # New technical term is saved in  list
-    newdef = input("Deutsche Übersetzung: ")               # New translation is asked
-    definition.append(newdef)                               # New translation is saved in list
+    newword = input("Fremdwort: ")                          # New word is asked
+    term.append(newword)                                    # New word is saved in list "term"
+    newdef = input("Deutsche Übersetzung: ")                # New translation is asked
+    definition.append(newdef)                               # New translation is saved in list "definition"
     while x == 0:
         continuing = input("Möchten Sie ein weiteres Wort hinzufügen? (Y/N) ")    # asks if another word shall be added
         if continuing == "Y":                               # if the answer is yes, the programm continues by calling the funktion again
@@ -222,54 +222,54 @@ def query(term, definition, number):
             inputt = definition                                         # the german words shall be written by the user
 
         elif modus=="3":
-            print("Es wird zufällig abgefragt! ")                      # continues by choosing the asked language randomly
+            print("Es wird zufällig abgefragt! ")                       # continues by choosing the asked language randomly
 
         elif modus=="4":
-            selection_menu()                                            # returns to choosing the language
+            selection_menu()                                            # returns to  the menu where the user can choose the language
             return
     except:
         print("Falsche Eingabe, bitte versuchen Sie es erneut")
     continuing = True                                                   # True if the query shall be continued, False if it shall be ended
     counter = 0                                                         # counts how many words have been translated correctly
-    statussafe = query_status_safe(number)                              # creates a list to safe if a word has been translated correctly
+    statussafe = query_status_safe(number)                              # creates list "statussafe" to safe if a word has been translated correctly
     score = 0                                                           # creates score to save the earned points
     while continuing == True:
         if modus == "3":
-            random_direction = random.randint(0, 1)                         # creates a random number to decide which direction is asked
-            if random_direction == 0:                                       # if the number is 0, the foreign word gets asked
+            random_direction = random.randint(0, 1)                     # creates a random number to decide in which direction the words are asked
+            if random_direction == 0:                                   # if the number is 0, the foreign word gets asked
                 outputt = term
                 inputt = definition
-            else:                                                           # if the number is 1, the german word gets asked
+            else:                                                       # if the number is 1, the german word gets asked
                 outputt = definition
                 inputt = term
         vocabnumber = random.randint(0, number)
         word = outputt[vocabnumber]
-        if statussafe[vocabnumber] == False:                                          # checks if the vocab has already been translated correctly
+        if statussafe[vocabnumber] == False:                                            # checks if the vocab has already been translated correctly
             print("-----------------------\nBitte geben Sie die Übersetzung von ", word, " ein: ")
             translation = input()
-            if translation == inputt[vocabnumber]:                                     # checks if the answer is right
-                statussafe[vocabnumber] = True                                       # notices the vocab as right translated
+            if translation == inputt[vocabnumber]:                                      # checks if the answer is right
+                statussafe[vocabnumber] = True                                          # remembers the vocab as right translated
                 print("Richtig!")
-                score += 100                                                # increases the score with 100
+                score += 100                                                            # increases the score by 100 points
                 print("\n-----------------------\nSie haben 100 Punkte erhalten!\nIhr neuer Score beträgt: ", score)
-                counter += 1                                                # updates the counter of right answers
+                counter += 1                                                            # updates the counter of right answers
             else:
                 print("\nDie Antwort war leider falsch! Die korrekte Antwort wäre gewesen: ",inputt[vocabnumber])
-                score -= 50                                                # decreases the score with 100
+                score -= 50                                                             # decreases the score by 50 points
                 print("\n-----------------------\nSie haben 50 Punkte verloren!\nIhr neuer Score beträgt: ", score)
-            if counter == number + 1:                                           # stops while-loop if all vocabs were translated correctly
+            if counter == number + 1:                                                   # stops while-loop if all vocabs were translated correctly
                 continuing = False
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Sie haben alle Vokabeln richtig übersetzt!\nGlückwunsch!\n-----------------------\nIhr Endscore beträgt: ", score)
                 while True:
                     try:
                         menu = input("-----------------------\nWas möchten Sie als nächstes tun?\n\n(1) Das Vokabelset wiederholen\n\
-(2) Zurueck zum Hauptmenü\n(3) Programm beenden\n")    # asks what the user wants to do now
+(2) Zurueck zum Hauptmenü\n(3) Programm beenden\n")                                     # asks what the user wants to do now
                         os.system('cls' if os.name == 'nt' else 'clear')
                         if menu == "1":
-                            query(term, definition, number)             # restarts the query with the same words
+                            query(term, definition, number)                             # restarts the query with the same words
                         elif menu == "2":
-                            selection_menu()                            # returns to the selection menu
+                            selection_menu()                                            # returns to the selection menu
                             return
                         elif menu == "3":
                             print("Programm wird beendet")
@@ -282,7 +282,7 @@ def query(term, definition, number):
                 os.system('cls' if os.name == 'nt' else 'clear')
                 if c == "N":
                     continuing = False
-                    selection_menu()                                        # jumps back into the selection menu if N was chosen
+                    selection_menu()                                                    # jumps back into the selection menu if N was chosen
                     return
                
 
@@ -291,4 +291,4 @@ def query(term, definition, number):
 ### Start: ###
 ##############
 selection_menu()
-sys.exit()                                                                  # closes the program by using the sys-library
+sys.exit()                                                                              # closes the program by using the sys-library
