@@ -13,8 +13,6 @@
 ################################################################################################################
 
 import os           ### imported os library, the os library is used to have an easy way to clear the console when heading to another menu (found on stackoverflow.com)
-import vocablibrary
-import creating
 import random       ### imported random library to generate random numbers for the query
 import sys          ### imported sys library to stop the programm
 os.system('cls' if os.name == 'nt' else 'clear')
